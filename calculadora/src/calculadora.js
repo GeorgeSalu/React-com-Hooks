@@ -1,10 +1,13 @@
-import React from 'react';
+import React,{ useState }from 'react';
 import './calculadora.css';
 import { 
   Jumbotron, Container, Row, Col, Button, Form 
 } from 'react-bootstrap'
 
 function Calculadora() {
+
+  const [txtNumeros, setTxtNumeros] = useState('0')
+
   return (
     <Jumbotron style={{
       background: 'transparent: !important',
