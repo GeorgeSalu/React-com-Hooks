@@ -24,7 +24,7 @@ function Calculadora() {
           <Col xs="9">
             <Form.Control type="text" 
                           name="txtNumeros" 
-                          class="text-right" 
+                          className="text-right" 
                           readOnly="readonly"
                           value={txtNumeros} />
           </Col>
