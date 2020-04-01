@@ -1,6 +1,7 @@
 function CalculadoraService() {
 
   const SOMA = '+'
+  const SUBTRACAO = '-'
 
   function calcular(numero1, numero2, operacao) {
     let resultado;
@@ -9,6 +10,9 @@ function CalculadoraService() {
       case SOMA:
         resultado = numero1 + numero2
         break;
+      case SUBTRACAO:
+        resultado = numero1 - numero2
+        break;
     }
     
     return resultado;
@@ -16,7 +20,7 @@ function CalculadoraService() {
 
 
   return [
-    calcular
+    calcular, SOMA, SUBTRACAO
   ];
 }
 
