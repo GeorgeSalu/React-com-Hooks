@@ -22,7 +22,11 @@ function Calculadora() {
             <Button variant="danger">C</Button>
           </Col>
           <Col xs="9">
-            <Form.Control type="text" name="txtNumeros" class="text-right" readOnly="readonly" />
+            <Form.Control type="text" 
+                          name="txtNumeros" 
+                          class="text-right" 
+                          readOnly="readonly"
+                          value={txtNumeros} />
           </Col>
         </Row>
         <Row>
