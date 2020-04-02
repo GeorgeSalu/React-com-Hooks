@@ -43,6 +43,15 @@ function Calculadora() {
     }
   }
 
+  function acaoCalcular() {
+    if(numero2 === null) {
+      return
+    }
+
+    const resultado = calcular(parseFloat(numero1), parseFloat(numero2), operacao)
+    setTxtNumeros(resultado)
+  }
+
   return (
     <Jumbotron style={{
       background: 'transparent: !important',
@@ -131,7 +140,8 @@ function Calculadora() {
               onClick={() => adicionarNumero('.')}>.</Button>
           </Col>
           <Col>
-            <Button variant="success">=</Button>
+            <Button variant="success"
+              onClick={acaoCalcular}>=</Button>
           </Col>
           <Col>
             <Button variant="warning"
