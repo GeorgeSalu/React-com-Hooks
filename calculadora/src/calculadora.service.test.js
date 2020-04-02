@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import CalculadoraService from './calculadora.service'
 
 describe('teste do CalculadoraService', () => {
-  const [calcular, SOMA, SUBTRACAO, DIVISAO] = CalculadoraService();
+  const [calcular, SOMA, SUBTRACAO, DIVISAO, MULTIPLICACAO] = CalculadoraService();
 
   it('deve garantir que 1 + 4 = 5', () => {
     let soma = calcular(1,4, SOMA);
@@ -18,5 +18,15 @@ describe('teste do CalculadoraService', () => {
   it('deve garantir que 1 / 4 = 0.25', () => {
     let divisao = calcular(1,4, DIVISAO);
     expect(divisao).toEqual(0.25);
+  })
+
+  it('deve garantir que 1 * 4 = 4', () => {
+    let divisao = calcular(1,4, MULTIPLICACAO);
+    expect(divisao).toEqual(4);
+  })
+
+  it('deve retornar 0 para operacao invalida', () => {
+    let operacaoInvalida = calcular(1,4,'%');
+    expect(operacaoInvalida).toEqual(0);
   })
 })
