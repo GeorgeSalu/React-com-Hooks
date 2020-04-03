@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 import Calculadora from './calculadora';
+import {render, fireEvent} from '@testing-library/react'
+import '@testing-library/jest-dom/extend-expect'
 
 describe('Calculadora', () => {
 
@@ -8,6 +10,11 @@ describe('Calculadora', () => {
     const div = document.createElement('div')
     ReactDOM.render(<Calculadora />, div)
     ReactDOM.unmountComponentAtNode(div);
+  });
+
+  it('deve limpar o campo de numeros', () => {
+    const { getByTestId,getByText } = render(<Calculadora />);
+    fireEvent.click(getByText('2'));
   });
 
 })
