@@ -28,4 +28,31 @@ describe('Calculadora', () => {
     expect(getAllByTestId('txtNumeros')).toHaveValue(5)
   })
 
+  it('deve somar 5 - 3 e obter 2', () => {
+    const {  getByTestId, getByText} = render(<Calculadora />)
+    fireEvent.click(getByText('5'))
+    fireEvent.click(getByText('-'))
+    fireEvent.click(getByText('3'))
+    fireEvent.click(getByText('='))
+    expect(getAllByTestId('txtNumeros')).toHaveValue(2)
+  })
+
+  it('deve dividir 6 / 3 e obter 2', () => {
+    const {  getByTestId, getByText} = render(<Calculadora />)
+    fireEvent.click(getByText('6'))
+    fireEvent.click(getByText('/'))
+    fireEvent.click(getByText('3'))
+    fireEvent.click(getByText('='))
+    expect(getAllByTestId('txtNumeros')).toHaveValue(2)
+  })
+
+  it('deve multiplicar 2 * 3 e obter 6', () => {
+    const {  getByTestId, getByText} = render(<Calculadora />)
+    fireEvent.click(getByText('2'))
+    fireEvent.click(getByText('*'))
+    fireEvent.click(getByText('3'))
+    fireEvent.click(getByText('='))
+    expect(getAllByTestId('txtNumeros')).toHaveValue(6)
+  })
+
 })
