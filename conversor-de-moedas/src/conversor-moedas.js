@@ -12,7 +12,7 @@ function ConversorMoedas() {
   const [valor, setValor] = useState('1')
 
   function handleValor(event) {
-    setValor(event.target.value);
+    setValor(event.target.value.replace(/\D/g,''));
   }
 
   return (
