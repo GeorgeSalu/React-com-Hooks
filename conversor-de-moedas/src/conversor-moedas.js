@@ -33,7 +33,10 @@ function ConversorMoedas() {
               </Form.Control>
             </Col>
             <Col sm="2">
-
+              <Button variant="success" type="submit">
+                <Spinner animation="border" size="sm" />
+                Converter
+              </Button>
             </Col>
           </Form.Row>
         </Form>
