@@ -11,7 +11,28 @@ function ConversorMoedas() {
     <div>
       <h1>ConversorMoedas</h1>
       <Jumbotron>
-        
+        <Form>
+          <Form.Row>
+            <Col sm="3">
+              <Form.Control 
+                placeholder="0" 
+                value={1} 
+                required/> 
+            </Col>
+            <Col sm="3">
+              
+            </Col>
+            <Col sm="1">
+              
+            </Col>
+            <Col sm="3">
+              
+            </Col>
+            <Col sm="2">
+
+            </Col>
+          </Form.Row>
+        </Form>
       </Jumbotron>
     </div>
   );
