@@ -20,13 +20,17 @@ function ConversorMoedas() {
                 required/> 
             </Col>
             <Col sm="3">
-              
+              <Form.Control 
+                as="select">
+              </Form.Control>
             </Col>
-            <Col sm="1">
-              
+            <Col sm="1" className="text-center" style={{paddingTop: '5px'}}>
+              <FontAwesomeIcon icon={faAngleDoubleRight} />
             </Col>
             <Col sm="3">
-              
+              <Form.Control 
+                as="select" >
+              </Form.Control>
             </Col>
             <Col sm="2">
 
