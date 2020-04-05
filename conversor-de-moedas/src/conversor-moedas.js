@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './conversor-moedas.css';
 import { 
 	Jumbotron, Button, Form, Col, Spinner, Alert, Modal
@@ -8,6 +8,13 @@ import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
 import ListarMoedas from './listar-moedas'
 
 function ConversorMoedas() {
+
+  const [valor, setValor] = useState('1')
+
+  function handleValor(event) {
+    setValor(event.target.value);
+  }
+
   return (
     <div>
       <h1>ConversorMoedas</h1>
@@ -20,7 +27,8 @@ function ConversorMoedas() {
             <Col sm="3">
               <Form.Control 
                 placeholder="0" 
-                value={1} 
+                value={valor}
+                onChange={handleValor} 
                 required/> 
             </Col>
             <Col sm="3">
