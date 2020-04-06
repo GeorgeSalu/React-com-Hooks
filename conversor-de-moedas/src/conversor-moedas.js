@@ -31,9 +31,7 @@ function ConversorMoedas() {
     event.preventDefault();
     setFormValidado(true);
     if(event.currentTarget.checkValidity() === true) {
-      alert('correto')
-    } else {
-      alert('incorreto')
+      //TODO implementar a chamada ao fixer.io
     }
   }
 
