@@ -13,6 +13,7 @@ function ConversorMoedas() {
   const [moedaDe, setMoedaDe] = useState('BRL')
   const [moedaPara, setMoedaPara] = useState('USD')
   const [exibirSpinner, setExibirSpinner] = useState(false);
+  const [formValidado, setFormValidado] = useState(false);
 
   function handleValor(event) {
     setValor(event.target.value.replace(/\D/g,''));
@@ -26,6 +27,16 @@ function ConversorMoedas() {
     setMoedaPara(event.target.value)
   }
 
+  function converter(event) {
+    event.preventDefault();
+    setFormValidado(true);
+    if(event.currentTarget.checkValidity() === true) {
+      alert('correto')
+    } else {
+      alert('incorreto')
+    }
+  }
+
   return (
     <div>
       <h1>ConversorMoedas</h1>
@@ -33,7 +44,7 @@ function ConversorMoedas() {
         Erro obtendo dados de conversão, tente novamento
       </Alert>
       <Jumbotron>
-        <Form>
+        <Form onSubmit={converter} noValidate validated={formValidado}>
           <Form.Row>
             <Col sm="3">
               <Form.Control 
