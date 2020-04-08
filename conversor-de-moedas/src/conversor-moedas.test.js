@@ -12,11 +12,15 @@ describe('Teste do componente de conversao de moedas', => {
 	  ReactDOM.unmountComponentAtNode(div);
 	})
 
-  it('deve simular uma conversao de moedas', => {
+  it('deve simular uma conversao de moedas', async () => {
     const { findByTestId, getByTestId } = render(<ConversorMoedas />);
     axiosMock.get.mockResolvedValueOnce({
       data: {success: true, rates: {BRL: 4.564292, USD: 1.101049}}
     });
+    fireEvent.click(getByTestId('btn-converter'));
+    const modal = await findByTestId('modal');
+    expect(axiosMock.get).toHaveBeenCalledTimes(1);
+    expect(modal).toHaveTestContent('1 BRL = 0.24 USD')
   })
 
 })
