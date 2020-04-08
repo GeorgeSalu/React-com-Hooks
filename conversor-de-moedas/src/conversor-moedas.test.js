@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import ConversorMoedas from './conversor-moedas';
 import {render, fireEvent} from '@testing-library/react'
 import axiosMock from 'axios';
+import '@testing-library/jest-dom/extend-expect'
 
 describe('Teste do componente de conversao de moedas', => {
 
@@ -20,7 +21,7 @@ describe('Teste do componente de conversao de moedas', => {
     fireEvent.click(getByTestId('btn-converter'));
     const modal = await findByTestId('modal');
     expect(axiosMock.get).toHaveBeenCalledTimes(1);
-    expect(modal).toHaveTestContent('1 BRL = 0.24 USD')
+    expect(modal).toHaveTextContent('1 BRL = 0.24 USD')
   })
 
 })
