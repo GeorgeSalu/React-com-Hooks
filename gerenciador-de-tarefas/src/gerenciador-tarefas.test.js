@@ -1,9 +1,9 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import ReacDOM from 'react-dom'
 import GerenciadorTarefas from './gerenciador-tarefas';
 
 test('renders learn react link', () => {
-  const { getByText } = render(<GerenciadorTarefas />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const div = document.createElement('div');
+  ReacDOM.render(<GerenciadorTarefas />, div);
+  ReacDOM.unmountComponentAtNode(div)
 });
