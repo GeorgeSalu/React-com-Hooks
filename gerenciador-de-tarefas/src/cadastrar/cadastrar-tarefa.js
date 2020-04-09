@@ -9,11 +9,15 @@ function CadastrarTarefa() {
   const [exibirModal, setExibirModal] = useState(false);
 
   function cadastrar(event) {
-
+    
   }
 
   function handleTxtTarefa(event) {
     setTarefa(event.target.value)
+  }
+
+  function handleFecharModal() {
+    navigate('/')
   }
 
 	return (
@@ -52,7 +56,7 @@ function CadastrarTarefa() {
             </A>
           </Form.Group>
         </Form>
-        <Modal show={false}>
+        <Modal show={exibirModal} onHide={handleFecharModal}>
           <Modal.Header closeButton>
             <Modal.Title>Sucesso</Modal.Title>
           </Modal.Header>
@@ -61,7 +65,8 @@ function CadastrarTarefa() {
           </Modal.Body>
           <Modal.Footer>
             <Button
-              variant="success">
+              variant="success"
+              onClick={handleFecharModal}>
               Continuar
             </Button>
           </Modal.Footer>
