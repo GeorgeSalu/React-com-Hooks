@@ -21,6 +21,18 @@ function CadastrarTarefa() {
               A Tarefa deve conter ao menos 5 caracteres
             </Form.Control.Feedback> 
           </Form.Group>
+          <Form.Group className="text-center">
+            <Button
+              variant="success"
+              type="submit">
+              Cadastrar
+            </Button>
+            &nbsp;
+            <A href="/"
+              className="btn btn-light">
+              Voltar
+            </A>
+          </Form.Group>
         </Form>
       </Jumbotron>  
     </div>
