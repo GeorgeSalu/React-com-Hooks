@@ -48,7 +48,8 @@ function CadastrarTarefa() {
               maxLength="100"
               required
               value={tarefa}
-              onChange={handleTxtTarefa} />
+              onChange={handleTxtTarefa}
+              data-testid="txt-tarefa" />
 
             <Form.Control.Feedback type="invalid">
               A Tarefa deve conter ao menos 5 caracteres
