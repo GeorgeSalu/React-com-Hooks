@@ -42,7 +42,9 @@ function ListarTarefas() {
           </tr>
         </thead>
         <tbody>
-
+          <ItemsListaTarefas 
+            tarefas={tarefas}
+            recarregarTarefas={setCarregarTarefas} />
         </tbody>
       </Table>
     </div> 
