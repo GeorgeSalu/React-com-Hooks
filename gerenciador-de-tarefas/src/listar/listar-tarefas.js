@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { A } from 'hookrouter';
 import { Table } from 'react-bootstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faPlus} from '@fortawesome/free-solid-svg-icons';
 
 function ListarTarefas() {
+
+  const [tarefas, setTarefas] = useState([]);
+
+  useEffect(() => {
+    function obterTarefas() {
+      const tarefasDb = localStorage['tarefas'];
+      let listarTarefas = tarefasDb ? JSON.parse(tarefasDb) : [];
+      setTarefas(listarTarefas);
+      console.log(listarTarefas)
+    }
+
+    obterTarefas();
+  });
+
   return (
     <div className="text-center">
       <h3>Tarefas a fazer</h3>
@@ -24,7 +38,7 @@ function ListarTarefas() {
           </tr>
         </thead>
         <tbody>
-          
+
         </tbody>
       </Table>
     </div> 
