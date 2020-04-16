@@ -9,6 +9,7 @@ describe('Teste do componente que exibe um item da listagem de tarefas', () => {
 
   const nomeTarefa = 'Tarefa';
   const tarefa = new Tarefa(1, nomeTarefa, false);
+  const tarefaConlcuida = new Tarefa(2, nomeTarefa, true);
 
 	it('deve renderizar o componente sem erros', () => {
     const div = document.createElement('div');
@@ -31,5 +32,19 @@ describe('Teste do componente que exibe um item da listagem de tarefas', () => {
     );
 
     expect(getByTestId('tarefa')).toHaveTextContent(nomeTarefa)
+  })
+
+  it('deve exibir uma tarefa concluida',() => {
+    const {getByTestId} = render(
+      <table>
+        <tbody>
+          <ItensListaTarefas 
+            tarefas={[tarefaConlcuida]}
+            recarregarTarefas={() => false} />
+        </tbody>
+      </table>
+    );
+
+    expect(getByTestId('nome-tarefa')).toHaveStyle('text-decoration: line-throught')
   })
 })
