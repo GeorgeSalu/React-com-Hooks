@@ -21,7 +21,7 @@ function RemoverTarefa(props) {
     event.preventDefault();
     const tarefasDb = localStorage['tarefas'];
     let tarefas = tarefasDb ? JSON.parse(tarefasDb) : [];
-    tarefas = tarefas.filter(tarefa => tarefa.id !=== props.tarefa.id);
+    tarefas = tarefas.filter(tarefa => tarefa.id !== props.tarefa.id);
     localStorage['tarefas'] = JSON.stringify(tarefas);
     setExibirModal(false);
     props.recarregarTarefas(true);
