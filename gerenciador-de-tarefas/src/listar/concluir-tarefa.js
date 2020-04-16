@@ -28,7 +28,7 @@ function ConcluirTarefa(props) {
       }
       return tarefa;
     });
-    localStorage['tarefas'] = JSON.stringfy(tarefa);
+    localStorage['tarefas'] = JSON.stringfy(tarefas);
     setExibirModal(false);
     props.recarregarTarefas(true)
   }
@@ -47,7 +47,7 @@ function ConcluirTarefa(props) {
         <Modal.Body>
           Deseja realmente concluir a seguinte tarefa ?
           <br />
-          <strong>{props.tafera.nome}</strong>
+          <strong>{props.tarefa.nome}</strong>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={handleConcluirTarefa}
