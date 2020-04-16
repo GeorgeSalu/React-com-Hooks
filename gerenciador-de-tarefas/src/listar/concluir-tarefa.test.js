@@ -19,4 +19,15 @@ describe('Teste do componente de conclusao de tarefas', () => {
     ReactDOM.unmountComponentAtNode(div)
   })
 
+  it('deve exibir a modal', () => {
+    const {getByTestId} = render(
+      <ConcluirTarefa 
+        tarefa={tarefa}
+        recarregarTarefas={() => false} />
+    );
+
+    fireEvent.click(getByTestId('btn-abrir-modal'));
+    expect(getByTestId('modal')).toHaveTextContent(nomeTarefa);
+  })
+
 })
