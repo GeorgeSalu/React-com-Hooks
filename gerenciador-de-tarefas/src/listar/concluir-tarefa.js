@@ -28,7 +28,7 @@ function ConcluirTarefa(props) {
       }
       return tarefa;
     });
-    localStorage['tarefas'] = JSON.stringfy(tarefas);
+    localStorage['tarefas'] = JSON.stringify(tarefas);
     setExibirModal(false);
     props.recarregarTarefas(true)
   }
