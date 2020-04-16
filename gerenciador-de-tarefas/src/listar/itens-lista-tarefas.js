@@ -8,7 +8,7 @@ import ConcluirTarefa from './concluir-tarefa';
 function ItensListaTarefas(props) {
 
   function marcarConcluida(tarefa) {
-    return tarefa.concluida ? 'line-throught' : 'none';
+    return tarefa.concluida ? 'line-through' : 'none';
   }
 
   return (
@@ -24,6 +24,7 @@ function ItensListaTarefas(props) {
             tarefa={tarefa}
             recarregarTarefas={props.recarregarTarefas}
             className={tarefa.concluida ? 'hidden' : null} />
+          &nbsp;
           <A href={"/atualizar/"+ tarefa.id}
             className={tarefa.concluida ? 'hidden' : 'btn btn-warning btn-sm'}>
             <FontAwesomeIcon icon={faEdit} />
