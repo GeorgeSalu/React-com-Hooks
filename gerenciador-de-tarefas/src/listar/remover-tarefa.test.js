@@ -10,4 +10,13 @@ describe('teste do componente de remocao de tarefas',() => {
   const nomeTarefa = 'Tarefa de teste';
   const tarefa = new Tarefa(1, nomeTarefa, false);
 
+  it('deve renderizar o componente sem erros',() => {
+    const div = document.createElement('div');
+    ReactDOM.render(
+      <RemoverTarefa
+        tarefa={tarefa}
+        recarregarTarefa={() => false} />, div);
+    ReactDOM.unmountComponentAtNode(div);
+  })
+
 })
