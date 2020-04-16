@@ -30,4 +30,17 @@ describe('Teste do componente de conclusao de tarefas', () => {
     expect(getByTestId('modal')).toHaveTextContent(nomeTarefa);
   })
 
+  it('deve concluir uma tarefa',() => {
+    localStorage['tarefas'] = JSON.stringify([tarefa]);
+    const {getByTestId} = render(
+      <ConcluirTarefa 
+        tarefa={tarefa}
+        recarregarTarefas={() => false} />
+    );
+    fireEvent.click(getByTestId('btn-abrir-modal'));
+    fireEvent.click(getByTestId('btn-concluir'));
+    const tarefasDb = JSON.parse(localStorage['tarefas'])
+    expect(tarefasDb[0].concluida).toBeTruthy();
+  })
+
 })
