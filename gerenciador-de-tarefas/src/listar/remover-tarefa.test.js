@@ -15,7 +15,7 @@ describe('teste do componente de remocao de tarefas',() => {
     ReactDOM.render(
       <RemoverTarefa
         tarefa={tarefa}
-        recarregarTarefa={() => false} />, div);
+        recarregarTarefas={() => false} />, div);
     ReactDOM.unmountComponentAtNode(div);
   })
 
@@ -23,10 +23,23 @@ describe('teste do componente de remocao de tarefas',() => {
     const {getByTestId} = render(
       <RemoverTarefa
         tarefa={tarefa}
-        recarregarTarefa={() => false} />
+        recarregarTarefas={() => false} />
     );
     fireEvent.click(getByTestId('btn-abrir-modal'));
     expect(getByTestId('modal')).toHaveTextContent(nomeTarefa);
+  })
+
+  it('deve remover uma tarefa',() => {
+    localStorage['tarefas'] = JSON.stringify([tarefa]);
+    const {getByTestId} = render(
+      <RemoverTarefa
+        tarefa={tarefa}
+        recarregarTarefas={() => false} />
+    );
+    fireEvent.click(getByTestId('btn-abrir-modal'));
+    fireEvent.click(getByTestId('btn-remover'));
+    const tarefasDb = JSON.parse(localStorage['tarefas']);
+    expect(tarefasDb.length).toBe(0)
   })
 
 })
