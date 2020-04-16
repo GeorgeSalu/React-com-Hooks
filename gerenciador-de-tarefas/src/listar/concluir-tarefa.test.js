@@ -10,4 +10,13 @@ describe('Teste do componente de conclusao de tarefas', () => {
   const nomeTarefa = 'Tarefa de teste';
   const tarefa = new Tarefa(1, nomeTarefa, false);
 
+  it('deve renderizar o componente sem erros',() => {
+    const div = document.createElement('div');
+    ReactDOM.render(
+      <ConcluirTarefa 
+        tarefa={tarefa}
+        recarregarTarefas={() => false} />, div);
+    ReactDOM.unmountComponentAtNode(div)
+  })
+
 })
