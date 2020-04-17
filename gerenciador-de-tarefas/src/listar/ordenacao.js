@@ -5,6 +5,18 @@ import PropTypes from 'prop-types';
 
 function Ordenacao(props) {
 
+  function handleAscDesc() {
+    return (props.ordenarAsc || props.ordenarDesc ) ? 'hidden' : '';
+  }
+
+  return (
+    <span>
+      <FontAwesomeIcon
+        icon={faSort}
+        className={handleAscDesc()}
+        data-testid="faSort" />
+    </span>
+  );
 }
 
 Ordenacao.propTypes = {
