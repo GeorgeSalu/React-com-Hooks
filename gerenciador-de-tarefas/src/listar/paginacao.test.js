@@ -16,4 +16,18 @@ describe('Teste do componente de paginacao',() => {
 
     ReacDOM.unmountComponentAtNode(div);
   })
+
+  it('deve exibir a paginacao contendo 3 paginas',() => {
+    const {getByTestId} = render(
+      <Paginacao
+        totalItems={15}
+        itemsPorPagina={5}
+        paginaAtual={1}
+        mudarPagina={() => false} />
+    );
+    const paginacao = getByTestId('paginacao')
+    expect(paginacao).toHaveTextContent('1')
+    expect(paginacao).toHaveTextContent('2')
+    expect(paginacao).toHaveTextContent('3')
+  })
 })
