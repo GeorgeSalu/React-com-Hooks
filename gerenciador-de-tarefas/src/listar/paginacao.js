@@ -13,10 +13,25 @@ function Paginacao(props) {
     )
   }
   
+  function gerarItemAnterior() {
+    return (
+      <Pagination.Prev
+        key="pagPrev"
+        onClick={() => props.mudarPagina(props.paginaAtual - 1 )}
+        disabled={props.paginaAtual === 1} />
+    )
+  }
+
   function obterPaginacao() {
+    const numPaginas = Math.ceil(props.totalItems / props.itemsPorPagina);
     let items = [];
 
     items.push(gerarPrimeiroItem())
+    items.push(gerarItemAnterior())
+
+    for(let pagina = 1; pagina <= numPaginas; pagina++) {
+      items.push(gerarItemNumerico(pagina))
+    }
 
     return items;
   }
