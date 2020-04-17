@@ -1,0 +1,16 @@
+import React from 'react'
+import Pagination from 'react-bootstrap/Pagination'
+import PropTypes from 'prop-types'
+
+function Paginacao(props) {
+  return();
+}
+
+Paginacao.propTypes = {
+  totalItems: PropTypes.number.isRequired,
+  itemsPorPagina: PropTypes.number.isRequired,
+  paginaAtual: PropTypes.number.isRequired,
+  mudarPagina: PropTypes.func.isRequired
+}
+
+export default Paginacao
