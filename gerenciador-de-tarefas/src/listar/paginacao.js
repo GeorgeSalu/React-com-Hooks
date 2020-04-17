@@ -3,7 +3,29 @@ import Pagination from 'react-bootstrap/Pagination'
 import PropTypes from 'prop-types'
 
 function Paginacao(props) {
-  return();
+
+  function gerarPrimeiroItem() {
+    return (
+      <Pagination.First
+        key="pagFirst"
+        onClick={() => props.mudarPagina(1)}
+        disabled={props.paginaAtual === 1} />
+    )
+  }
+  
+  function obterPaginacao() {
+    let items = [];
+
+    items.push(gerarPrimeiroItem())
+
+    return items;
+  }
+
+  return(
+    <Pagination data-testid="paginacao">
+      {obterPaginacao()}
+    </Pagination>
+  );
 }
 
 Paginacao.propTypes = {
