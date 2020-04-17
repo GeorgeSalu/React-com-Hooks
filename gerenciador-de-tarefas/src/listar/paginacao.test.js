@@ -1,7 +1,7 @@
 import React from 'react'
 import ReacDOM from 'react-dom'
 import Paginacao from './paginacao'
-import {render, fireEvent} from '@testing-library/react'
+import {render} from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
 describe('Teste do componente de paginacao',() => {
