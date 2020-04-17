@@ -30,6 +30,12 @@ function ListarTarefas() {
     }
   }, [carregarTarefas, paginaAtual]);
 
+  function handleMudarPagina(pagina) {
+    setPaginaAtual(pagina);
+    setCarregarTarefas(true);
+    
+  }
+
   return (
     <div className="text-center">
       <h3>Tarefas a fazer</h3>
