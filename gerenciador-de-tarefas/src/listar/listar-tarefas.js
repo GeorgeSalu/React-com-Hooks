@@ -64,7 +64,7 @@ function ListarTarefas() {
   function handleFiltrar(event) {
     setFiltroTarefa(event.target.value);
     setCarregarTarefas(true);
-    
+
   }
 
   return (
@@ -98,7 +98,8 @@ function ListarTarefas() {
                 type="text"
                 value={filtroTarefa}
                 onChange={handleFiltrar}
-                data-testid="txt-tarefa" />
+                data-testid="txt-tarefa"
+                className="filtro-tarefa" />
             </th>
             <th>&nbsp;</th>
           </tr>
