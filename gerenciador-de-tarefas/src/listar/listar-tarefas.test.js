@@ -7,13 +7,13 @@ import '@testing-library/jest-dom/extend-expect'
 
 describe('Teste do componente de listagem de tarefas', () => {
 
-  const nomePrimeirTarefa = 'Primeira Tarefa'
+  const nomePrimeiraTarefa = 'Primeira Tarefa'
   const nomeSegundaTarefa = 'Segunda Tarefa'
   const nomeTerceiraTarefa = 'Terceira Tarefa'
 
   beforeEach(() => {
     localStorage['tarefas'] = JSON.stringify([
-      new Tarefa(1, nomePrimeirTarefa, false),
+      new Tarefa(1, nomePrimeiraTarefa, false),
       new Tarefa(2, nomeSegundaTarefa, false),
       new Tarefa(3, nomeTerceiraTarefa, false)
     ])
@@ -32,7 +32,7 @@ describe('Teste do componente de listagem de tarefas', () => {
   it('deve exibir uma tabela contendo 3 tarefas',() => {
     const {getByTestId} = render(<ListarTarefas />);
     const tabela = getByTestId('tabela');
-    expect(tabela).toHaveTextContent(nomePrimeirTarefa)
+    expect(tabela).toHaveTextContent(nomePrimeiraTarefa)
     expect(tabela).toHaveTextContent(nomeSegundaTarefa)
     expect(tabela).toHaveTextContent(nomeTerceiraTarefa)
   })
