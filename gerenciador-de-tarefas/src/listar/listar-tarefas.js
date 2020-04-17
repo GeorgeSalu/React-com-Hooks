@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { A } from 'hookrouter';
-import { Table } from 'react-bootstrap';
+import { Table, Form } from 'react-bootstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faPlus} from '@fortawesome/free-solid-svg-icons';
 import ItensListaTarefas from './itens-lista-tarefas'
@@ -17,6 +17,7 @@ function ListarTarefas() {
   const [paginaAtual, setPaginaAtual] = useState(1);
   const [ordernarAsc, setOrdernarAsc] = useState(false);
   const [ordernarDesc, setOrdernarDesc] = useState(false);
+  const [filtroTarefa, setFiltroTarefa] = useState('')
 
   useEffect(() => {
     function obterTarefas() {
@@ -60,6 +61,12 @@ function ListarTarefas() {
     setCarregarTarefas(true);
   }
 
+  function handleFiltrar(event) {
+    setFiltroTarefa(event.target.value);
+    setCarregarTarefas(true);
+    
+  }
+
   return (
     <div className="text-center">
       <h3>Tarefas a fazer</h3>
@@ -84,6 +91,16 @@ function ListarTarefas() {
                 Nova Tarefa
               </A>
             </th>
+          </tr>
+          <tr>
+            <th>
+              <Form.Control
+                type="text"
+                value={filtroTarefa}
+                onChange={handleFiltrar}
+                data-testid="txt-tarefa" />
+            </th>
+            <th>&nbsp;</th>
           </tr>
         </thead>
         <tbody>
