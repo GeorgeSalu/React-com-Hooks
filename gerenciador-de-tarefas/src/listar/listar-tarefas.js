@@ -23,6 +23,11 @@ function ListarTarefas() {
     function obterTarefas() {
       const tarefasDb = localStorage['tarefas'];
       let listaTarefas = tarefasDb ? JSON.parse(tarefasDb) : [];
+      //filtrar
+      listaTarefas = listaTarefas.filter(
+        t => t.nome.toLowerCase().indexOf(filtroTarefa.toLowerCase()) === 0
+      );
+
       //ordenar
       if(ordernarAsc) {
         listaTarefas.sort((t1,t2) => (t1.nome.toLowerCase() > t2.nome.toLowerCase()) ? 1 : -1);
@@ -39,7 +44,7 @@ function ListarTarefas() {
       obterTarefas();
       setCarregarTarefas(false)
     }
-  }, [carregarTarefas, paginaAtual, ordernarAsc, ordernarDesc]);
+  }, [carregarTarefas, paginaAtual, ordernarAsc, ordernarDesc, filtroTarefa]);
 
   function handleMudarPagina(pagina) {
     setPaginaAtual(pagina);
