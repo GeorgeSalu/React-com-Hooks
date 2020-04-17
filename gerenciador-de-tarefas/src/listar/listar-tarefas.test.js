@@ -37,4 +37,13 @@ describe('Teste do componente de listagem de tarefas', () => {
     expect(tabela).toHaveTextContent(nomeTerceiraTarefa)
   })
 
+  it('deve filtrar os dados da tabela de tarefas',() => {
+    const {getByTestId} = render(<ListarTarefas />);
+    fireEvent.change(getByTestId('txt-tarefa'), {target: {value: nomePrimeiraTarefa}})
+    const tabela = getByTestId('tabela')
+    expect(tabela).toHaveTextContent(nomePrimeiraTarefa);
+    expect(tabela).not.toHaveTextContent(nomeSegundaTarefa);
+    expect(tabela).not.toHaveTextContent(nomeTerceiraTarefa);
+  })
+
 })
