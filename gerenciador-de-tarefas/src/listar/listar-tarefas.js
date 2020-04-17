@@ -19,15 +19,16 @@ function ListarTarefas() {
     function obterTarefas() {
       const tarefasDb = localStorage['tarefas'];
       let listaTarefas = tarefasDb ? JSON.parse(tarefasDb) : [];
-      setTarefas(listaTarefas);
-      setTotalItems(listaTarefas.length)
+      setTotalItems(listaTarefas.length);
+      setTarefas(listaTarefas.splice((paginaAtual - 1) * ITENS_POR_PAG, ITENS_POR_PAG));
+      
     }
 
     if(carregarTarefas) {
       obterTarefas();
       setCarregarTarefas(false)
     }
-  }, [carregarTarefas]);
+  }, [carregarTarefas, paginaAtual]);
 
   return (
     <div className="text-center">
