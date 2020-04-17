@@ -14,6 +14,8 @@ function ListarTarefas() {
   const [carregarTarefas, setCarregarTarefas] = useState(true);
   const [totalItems, setTotalItems] = useState(0);
   const [paginaAtual, setPaginaAtual] = useState(1);
+  const [ordernarAsc, setOrdernarAsc] = useState(false);
+  const [ordernarDesc, setOrdernarDesc] = useState(false);
 
   useEffect(() => {
     function obterTarefas() {
@@ -33,7 +35,21 @@ function ListarTarefas() {
   function handleMudarPagina(pagina) {
     setPaginaAtual(pagina);
     setCarregarTarefas(true);
-    
+  }
+
+  function handleOrdenar(event) {
+    event.preventDefault();
+    if(!ordernarAsc && !ordernarDesc) {
+      setOrdernarAsc(true);
+      setOrdernarDesc(false);
+    } else if(ordernarAsc) {
+      setOrdernarAsc(false);
+      setOrdernarDesc(true);
+    } else {
+      setOrdernarAsc(false);
+      setOrdernarDesc(false);
+    }
+    setCarregarTarefas(true);
   }
 
   return (
@@ -42,7 +58,11 @@ function ListarTarefas() {
       <Table striped bordered hover responsive data-testid="tabela">
         <thead>
           <tr>
-            <th>Tarefa</th>
+            <th>
+              <a href="/" onClick={handleOrdenar}>
+                Tarefa
+              </a>
+            </th>
             <th>
               <A href="/cadastrar"
                 className="btn btn-success btn-sm"
