@@ -1,7 +1,35 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Button, Form, Jumbotron, Modal } from 'react-bootstrap'
+import { navigate, A } from 'hookrouter';
 
-function AtualizarTarefa() {
-  return <h1>Atualizar Tarefa</h1>	
+function AtualizarTarefa(props) {
+  return (
+    <div>
+      <h3 className="text-center">Atualizar</h3>
+      <Jumbotron>
+        <Form>
+          <Form.Group>
+            <Form.Label>Tarefa</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Digite a tarefa"
+              minLength="5"
+              maxLength="100"
+              required
+              data-testid="txt-tarefa"/>
+            <Form.Control.Feedback type="invalid">
+              A tarefa deve conter ao menos 5 caracteres
+            </Form.Control.Feedback>
+          </Form.Group>
+        </Form>
+      </Jumbotron>
+    </div>
+  );
+}
+
+AtualizarTarefa.propTypes = {
+  id: PropTypes.number.isRequired
 }
 
 export default AtualizarTarefa
