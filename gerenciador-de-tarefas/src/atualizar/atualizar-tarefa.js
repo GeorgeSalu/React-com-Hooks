@@ -33,7 +33,7 @@ function AtualizarTarefa(props) {
               Atualizar
             </Button>
             &nbsp;
-            <A href="/" className="btn btn-ligth" onclick={voltar}>
+            <A href="/" className="btn btn-light" onclick={voltar}>
               Voltar
             </A>
           </Form.Group>
