@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Form, Jumbotron, Modal } from 'react-bootstrap'
 import { navigate, A } from 'hookrouter';
 
 function AtualizarTarefa(props) {
 
+  const [exibirModal, setExibirModal] = useState(false);
+
   function voltar(event) {
     event.preventDefault();
+    navigate('/')
+  }
+
+  function handleFecharModal() {
     navigate('/')
   }
 
@@ -38,6 +44,19 @@ function AtualizarTarefa(props) {
             </A>
           </Form.Group>
         </Form>
+        <Modal show={exibirModal} onHide={handleFecharModal} data-testid="modal" >
+          <Modal.Header closeButton>
+            <Modal.Title>Sucesso</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            Tarefa atutlizada com sucesso
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="success" onclick={handleFecharModal}>
+              Continuar
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </Jumbotron>
     </div>
   );
