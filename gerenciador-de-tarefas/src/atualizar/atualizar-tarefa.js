@@ -4,11 +4,17 @@ import { Button, Form, Jumbotron, Modal } from 'react-bootstrap'
 import { navigate, A } from 'hookrouter';
 
 function AtualizarTarefa(props) {
+
+  function voltar(event) {
+    event.preventDefault();
+    navigate('/')
+  }
+
   return (
     <div>
       <h3 className="text-center">Atualizar</h3>
       <Jumbotron>
-        <Form>
+        <Form noValidate>
           <Form.Group>
             <Form.Label>Tarefa</Form.Label>
             <Form.Control
@@ -21,6 +27,15 @@ function AtualizarTarefa(props) {
             <Form.Control.Feedback type="invalid">
               A tarefa deve conter ao menos 5 caracteres
             </Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group className="text-center">
+            <Button variant="success" type="submit" data-testid="btn-atualizar">
+              Atualizar
+            </Button>
+            &nbsp;
+            <A href="/" className="btn btn-ligth" onclick={voltar}>
+              Voltar
+            </A>
           </Form.Group>
         </Form>
       </Jumbotron>
