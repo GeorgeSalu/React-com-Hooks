@@ -38,9 +38,17 @@ function AtualizarTarefa(props) {
     setFormValidado(true);
     if(event.currentTarget.checkValidity() === true) {
       //obter as tarefas
-
+      const tarefasDb = localStorage['tarefas'];
+      let tarefas = tarefasDb ? JSON.parse(tarefasDb) : [];
       //persistir a tarefa atualizada
+      tarefas = tarefas.map(tarefaObj => {
+        if(tarefaObj.id === parseInt(props.id)) {
+          tarefaObj.nome = tarefa
+        }
+        return tarefaObj;
+      });
 
+      localStorage['tarefas'] = JSON.stringify(tarefas);
       setExibirModal(true);
     }
   }
