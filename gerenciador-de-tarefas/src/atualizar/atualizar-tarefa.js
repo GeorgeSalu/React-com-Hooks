@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Form, Jumbotron, Modal } from 'react-bootstrap'
 import { navigate, A } from 'hookrouter';
@@ -8,6 +8,21 @@ function AtualizarTarefa(props) {
   const [exibirModal, setExibirModal] = useState(false);
   const [formValidado, setFormValidado] = useState(false);
   const [tarefa, setTarefa] = useState('');
+  const [carregarTarefa, setCarregarTarefa] = useState(true);
+
+  useEffect(() => {
+
+    if(carregarTarefa) {
+      const tarefasDb = localStorage['tarefas'];
+      const tarefas = tarefasDb ? JSON.parse(tarefasDb) : [];
+      const tarefa = tarefas.filter(
+        t => t.id === parseInt(props.id)
+      )[0];
+      setTarefa(tarefa.nome);
+      setCarregarTarefa(false);
+    }
+
+  }, [carregarTarefa, props])
 
   function voltar(event) {
     event.preventDefault();
