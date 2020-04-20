@@ -20,6 +20,11 @@ describe('Teste do componente de atualizacao de tarefas', () => {
     ReactDOM.unmountComponentAtNode(div)
   })
 
+  it('deve exibir a modal de sucesso ao atualizar uma tarefa',() => {
+    const {getByTestId} = render(<AtualizarTarefa id={tarefaId} />);
 
+    fireEvent.click(getByTestId('btn-atualizar'));
+    expect(getByTestId('modal')).toHaveTextContent('Sucesso');
+  })
 
 })
