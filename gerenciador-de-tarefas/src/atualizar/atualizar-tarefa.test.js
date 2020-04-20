@@ -27,4 +27,14 @@ describe('Teste do componente de atualizacao de tarefas', () => {
     expect(getByTestId('modal')).toHaveTextContent('Sucesso');
   })
 
+  it('deve atualizar uma tarefa',() => {
+    const nomeTarefaAtualizada = 'Tarefa atualizada';
+    const {getByTestId} = render(<AtualizarTarefa id={tarefaId} />)
+
+    fireEvent.change(getByTestId('txt-tarefa'), {target: {value: nomeTarefaAtualizada}});
+    fireEvent.click(getByTestId('btn-atualizar'));
+    const tarefasDb = JSON.parse(localStorage('tarefas'));
+    expect(tarefasDb[0].nome).toBe(nomeTarefaAtualizada);
+  })
+
 })
