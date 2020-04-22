@@ -27,7 +27,7 @@ app.put('/gerenciador-tarefas/:id', naoImplementado);
 //remover uma tarefa - delete
 app.delete('/gerenciador-tarefas/:id', naoImplementado);
 
-//conscluir uma tarefa - put
+//concluir uma tarefa - put
 app.put('/gerenciador-tarefas/:id/concluir', naoImplementado);
 
 
