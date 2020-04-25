@@ -56,8 +56,24 @@ function cadastrarTarefa(req,res) {
   res.json(tarefa);
 }
 
+function atualizarTarefa(req, res) {
+  if(!req.body['nome'] && !req.body['concluida']) {
+    res.status(400).json({ erro: 'requisicao invalida' })
+  }
+
+  const id = req.params.id;
+  tarefas = tarefas.map(tarefa => {
+    if(tarefa.id === id) {
+      tarefa.nome = req.body['nome'];
+      tarefa.concluida = req.body['concluida']
+    }
+    return tarefa;
+  })
+}
+
 module.exports = {
   listarTarefaId, 
   listarTarefas,
-  cadastrarTarefa
+  cadastrarTarefa,
+  atualizarTarefa
 }
