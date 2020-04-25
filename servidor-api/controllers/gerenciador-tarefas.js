@@ -29,8 +29,17 @@ function listarTarefas(req, res) {
     );
   }
   //ordernar
-
+  if(ordem === 'ASC') {
+    tarefasRetornar.sort((t1,t2) => (t1.nome.toLowerCase() > t2.nome.toLowerCase()) ? 1 : -1);
+  } else if(ordem === 'DESC') {
+    tarefasRetornar.sort((t1,t2) => (t1.nome.toLowerCase() < t2.nome.toLowerCase()) ? 1 : -1);
+  }
   //retornar
+  res.json({
+    totalItens: tarefasRetornar.length,
+    tarefas: tarefasRetornar.slice(0).splice((pagina - 1) * itensPorPagina, itensPorPagina),
+    pagina: pagina
+  })
 }
 
 module.exports = {
