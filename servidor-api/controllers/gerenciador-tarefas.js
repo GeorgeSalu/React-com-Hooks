@@ -21,6 +21,7 @@ function listarTarefas(req, res) {
   const ordem = req.query['ordem'];
   const filtroTarefa = req.query['filtro-tarefa'];
   const itensPorPagina = req.query['itens-por-pagina'];
+  let tarefaRetornar = tarefas.slice(0);
 }
 
 module.exports = {
