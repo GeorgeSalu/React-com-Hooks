@@ -16,6 +16,13 @@ function listarTarefaId(req, res) {
   res.status(200).json(tarefa[0]);
 }
 
+function listarTarefas(req, res) {
+  const pagina = req.query['pag'] || 1;
+  const ordem = req.query['ordem'];
+  const filtroTarefa = req.query['filtro-tarefa'];
+  const itensPorPagina = req.query['itens-por-pagina'];
+}
+
 module.exports = {
   listarTarefaId
 }
