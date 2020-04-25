@@ -23,7 +23,7 @@ function listarTarefas(req, res) {
   const itensPorPagina = req.query['itens-por-pagina'];
   let tarefasRetornar = tarefas.slice(0);
   //filtro
-  if(tarefasRetornar) {
+  if(filtroTarefa) {
     tarefasRetornar = tarefasRetornar.filter(
       t => t.nome.toLowerCase().indexOf(filtroTarefa.toLowerCase()) === 0
     );
@@ -42,6 +42,22 @@ function listarTarefas(req, res) {
   })
 }
 
+
+function cadastrarTarefa(req,res) {
+  if(!req.body['nome'] && !req.body['concluida']) {
+    res.status(400).json({ erro: 'requisicao invalida' })
+  }
+  const tarefa = {
+    id: uuidv4(),
+    nome: req.body['nome'],
+    concluida: req.body['concluida']
+  };
+  tarefas.push(tarefa);
+  res.json(tarefa);
+}
+
 module.exports = {
-  listarTarefaId
+  listarTarefaId, 
+  listarTarefas,
+  cadastrarTarefa
 }
