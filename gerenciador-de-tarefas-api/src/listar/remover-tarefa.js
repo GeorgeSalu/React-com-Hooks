@@ -31,7 +31,8 @@ function RemoverTarefa(props) {
       setExibirModal(false);
       props.recarregarTarefas(true);  
     }catch(erro) {
-
+      setExibirModal(false);
+      setExibirModalErro(true);
     }
   }
 
