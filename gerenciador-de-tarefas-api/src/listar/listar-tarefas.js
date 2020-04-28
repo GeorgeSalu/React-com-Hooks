@@ -6,10 +6,12 @@ import {faPlus} from '@fortawesome/free-solid-svg-icons';
 import ItensListaTarefas from './itens-lista-tarefas'
 import Paginacao from './paginacao'
 import Ordenacao from './ordenacao'
+import axios from 'axios'
 
 function ListarTarefas() {
 
   const ITENS_POR_PAG = 3;
+  const API_URL_LISTAR_TAREFAS = 'http://localhost:3001/gerenciador-tarefas'
 
   const [tarefas, setTarefas] = useState([]);
   const [carregarTarefas, setCarregarTarefas] = useState(true);
@@ -20,23 +22,7 @@ function ListarTarefas() {
   const [filtroTarefa, setFiltroTarefa] = useState('')
 
   useEffect(() => {
-    function obterTarefas() {
-      const tarefasDb = localStorage['tarefas'];
-      let listaTarefas = tarefasDb ? JSON.parse(tarefasDb) : [];
-      //filtrar
-      listaTarefas = listaTarefas.filter(
-        t => t.nome.toLowerCase().indexOf(filtroTarefa.toLowerCase()) === 0
-      );
-
-      //ordenar
-      if(ordernarAsc) {
-        listaTarefas.sort((t1,t2) => (t1.nome.toLowerCase() > t2.nome.toLowerCase()) ? 1 : -1);
-      } else if(ordernarDesc) {
-        listaTarefas.sort((t1,t2) => (t1.nome.toLowerCase() < t2.nome.toLowerCase()) ? 1 : -1);
-      } 
-      //paginar
-      setTotalItems(listaTarefas.length);
-      setTarefas(listaTarefas.splice((paginaAtual - 1) * ITENS_POR_PAG, ITENS_POR_PAG));
+    async function obterTarefas() {
       
     }
 
