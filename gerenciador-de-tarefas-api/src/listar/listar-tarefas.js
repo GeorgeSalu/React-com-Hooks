@@ -23,7 +23,13 @@ function ListarTarefas() {
 
   useEffect(() => {
     async function obterTarefas() {
-      
+      try {
+        let {data} = await axios.get(API_URL_LISTAR_TAREFAS);
+        setTotalItems(data.totalItens);
+        setTarefas(data.tarefas);
+      } catch(err) {
+        setTarefas([])
+      }
     }
 
     if(carregarTarefas) {
