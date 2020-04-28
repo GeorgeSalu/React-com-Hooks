@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Button, Form, Jumbotron, Modal } from 'react-bootstrap'
 import { navigate, A } from 'hookrouter';
 import axios from 'axios';
+import Tarefa from '../models/tarefa.model'
 
 function AtualizarTarefa(props) {
 
@@ -41,23 +42,17 @@ function AtualizarTarefa(props) {
     navigate('/')
   }
 
-  function atualizar(event) {
+  async function atualizar(event) {
     event.preventDefault();
     setFormValidado(true);
     if(event.currentTarget.checkValidity() === true) {
-      //obter as tarefas
-      const tarefasDb = localStorage['tarefas'];
-      let tarefas = tarefasDb ? JSON.parse(tarefasDb) : [];
-      //persistir a tarefa atualizada
-      tarefas = tarefas.map(tarefaObj => {
-        if(tarefaObj.id === parseInt(props.id)) {
-          tarefaObj.nome = tarefa
-        }
-        return tarefaObj;
-      });
-
-      localStorage['tarefas'] = JSON.stringify(tarefas);
-      setExibirModal(true);
+      try {
+        const tarefaAtualizar = new Tarefa(null, tarefa, false);
+        await axios.put(API_URL_TAREFAS + props.id, tarefaAtualizar)
+        setExibirModal(true);
+      } catch(erro) {
+        setExibirModalErro(true);
+      }
     }
   }
 
