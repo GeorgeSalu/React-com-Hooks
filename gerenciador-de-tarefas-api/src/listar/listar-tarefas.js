@@ -22,9 +22,19 @@ function ListarTarefas() {
   const [filtroTarefa, setFiltroTarefa] = useState('')
 
   useEffect(() => {
+
+    //ordenar
+    let ordem = ''
+    if(ordernarAsc) {
+      ordem = 'ASC';
+    } else if(ordernarDesc) {
+      ordem = 'DESC';
+    }
+
     async function obterTarefas() {
+      const params = `?pag=${paginaAtual}&ordem=${ordem}&filtro-tarefa=${filtroTarefa}`;
       try {
-        let {data} = await axios.get(API_URL_LISTAR_TAREFAS);
+        let {data} = await axios.get(API_URL_LISTAR_TAREFAS+params);
         setTotalItems(data.totalItens);
         setTarefas(data.tarefas);
       } catch(err) {
