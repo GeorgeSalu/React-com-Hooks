@@ -3,8 +3,11 @@ import PropTypes from 'prop-types';
 import { Modal, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faTrashAlt} from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
 
 function RemoverTarefa(props) {
+
+  const API_URL_REMOVER_TAREFAS = 'http://localhost:3001/gerenciador-tarefas/'
 
   const [exibirModal, setExibirModal] = useState(false);
   const [exibirModalErro, setExibirModalErro] = useState(false);
@@ -18,14 +21,18 @@ function RemoverTarefa(props) {
     setExibirModal(false);
   }
 
-  function handleRemoverTarefa(event) {
+  async function handleRemoverTarefa(event) {
     event.preventDefault();
-    const tarefasDb = localStorage['tarefas'];
-    let tarefas = tarefasDb ? JSON.parse(tarefasDb) : [];
-    tarefas = tarefas.filter(tarefa => tarefa.id !== props.tarefa.id);
-    localStorage['tarefas'] = JSON.stringify(tarefas);
-    setExibirModal(false);
-    props.recarregarTarefas(true);
+    
+    try {
+
+      await axios.delete(API_URL_REMOVER_TAREFAS + props.tarefa.id)
+
+      setExibirModal(false);
+      props.recarregarTarefas(true);  
+    }catch(erro) {
+
+    }
   }
 
   function handleFecharModalErro() {
