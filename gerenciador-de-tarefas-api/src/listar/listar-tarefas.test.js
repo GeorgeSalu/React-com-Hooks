@@ -12,7 +12,7 @@ describe('Teste do componente de listagem de tarefas', () => {
   const nomeSegundaTarefa = 'Segunda Tarefa'
   const nomeTerceiraTarefa = 'Terceira Tarefa'
 
-  it.skip('deve exibir uma tabela contendo 3 tarefas', async () => {
+  it('deve exibir uma tabela contendo 3 tarefas', async () => {
     axiosMock.get.mockResolvedValueOnce({data: {
       totalItens: 3,
       tarefas: [
