@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Form, Jumbotron, Modal } from 'react-bootstrap'
 import { navigate, A } from 'hookrouter';
+import axios from 'axios';
 
 function AtualizarTarefa(props) {
+
+  const API_URL_TAREFAS = 'http://localhost:3001/gerenciador-tarefas/'
 
   const [exibirModal, setExibirModal] = useState(false);
   const [formValidado, setFormValidado] = useState(false);
@@ -13,13 +16,17 @@ function AtualizarTarefa(props) {
 
   useEffect(() => {
 
+    async function obterTarefa() {
+      try {
+        let {data} = await axios.get(API_URL_TAREFAS + props.id)
+        setTarefa(data.nome);
+      } catch(erro) {
+        navigate('/')
+      }
+    }
+
     if(carregarTarefa) {
-      const tarefasDb = localStorage['tarefas'];
-      const tarefas = tarefasDb ? JSON.parse(tarefasDb) : [];
-      const tarefa = tarefas.filter(
-        t => t.id === parseInt(props.id)
-      )[0];
-      setTarefa(tarefa.nome);
+      obterTarefa();
       setCarregarTarefa(false);
     }
 
