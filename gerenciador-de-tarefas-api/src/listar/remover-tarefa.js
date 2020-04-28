@@ -7,6 +7,7 @@ import {faTrashAlt} from '@fortawesome/free-solid-svg-icons';
 function RemoverTarefa(props) {
 
   const [exibirModal, setExibirModal] = useState(false);
+  const [exibirModalErro, setExibirModalErro] = useState(false);
 
   function handleAbrirModal(event) {
     event.preventDefault();
@@ -25,6 +26,10 @@ function RemoverTarefa(props) {
     localStorage['tarefas'] = JSON.stringify(tarefas);
     setExibirModal(false);
     props.recarregarTarefas(true);
+  }
+
+  function handleFecharModalErro() {
+    setExibirModalErro(false);
   }
 
   return (
@@ -54,6 +59,22 @@ function RemoverTarefa(props) {
           <Button variant="light"
             onClick={handleFecharModal}>
             Não
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      <Modal show={exibirModalErro} onHide={handleFecharModalErro} >
+        <Modal.Header closeButton>
+          <Modal.Title>Erro</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Erro ao remover tarefa, tente novamente em instantes
+        </Modal.Body>
+        <Modal.Footer>
+          <Button
+            variant="warning"
+            onClick={handleFecharModalErro}>
+            Fechar
           </Button>
         </Modal.Footer>
       </Modal>
