@@ -5,6 +5,11 @@ import Chart from 'react-google-charts';
 function Dashboard() {
 
   const TITULO = 'Quantidae de cadastros primeiro semestre';
+  const ANIMACAO = {
+    duration: 1000,
+    easing: 'out',
+    startup: true
+  }
 
   const [dados, setDados] = useState([
     ['Mês','Quantidade'],
@@ -64,11 +69,23 @@ function Dashboard() {
           vAxis: {
             title: 'Mês'
           },
-          animation: {
-            duration: 1000,
-            easing: 'out',
-            startup: true
-          }
+          animation: ANIMACAO
+        }} />
+
+      <Chart
+        width={'400px'}
+        height={'300px'}
+        chartType={'LineChart'}
+        data={dados}
+        options={{
+          title: TITULO,
+          hAxis: {
+            title: 'Mês'
+          },
+          vAxis: {
+            title: 'Quantidade'
+          },
+          animation: ANIMACAO
         }} />
     </div>
   );
