@@ -37,6 +37,16 @@ function Dashboard() {
           title: TITULO,
           is3D: true
         }} />
+
+      <Chart
+        width={'400px'}
+        height={'300px'}
+        chartType={'PieChart'}
+        data={dados}
+        options={{
+          title: TITULO,
+          pieHole: 0.4
+        }} />
     </div>
   );
 }
