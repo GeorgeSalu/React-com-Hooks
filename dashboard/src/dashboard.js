@@ -32,6 +32,12 @@ function Dashboard() {
       setDados(dadosGraficos)
     }
 
+    const intervalId = setInterval(() => alterarDados(), 5000);
+
+    return () => {
+      clearInterval(intervalId);
+    }
+
   }, [dados])
 
   return (
