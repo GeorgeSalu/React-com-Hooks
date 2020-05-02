@@ -1,5 +1,6 @@
 import React from 'react';
 import './dashboard.css';
+import Chart from 'react-google-charts';
 
 function Dashboard() {
   return (
