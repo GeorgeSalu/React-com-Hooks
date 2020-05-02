@@ -1,9 +1,9 @@
 import React from 'react';
-import './dasboard.css';
+import './dashboard.css';
 
 function Dashboard() {
   return (
-    <h1></h1>
+    <h1>Dashboard</h1>
   );
 }
 
