@@ -11,7 +11,8 @@ const {
   concluirTarefa
 } = require('./controllers/gerenciador-tarefas.js');
 const {
-  finalizarCompra
+  finalizarCompra,
+  obterCidadesPorEstado
 } = require('./controllers/mini-ecommerce.js')
 
 const app = express();
@@ -35,5 +36,6 @@ app.put('/gerenciador-tarefas/:id/concluir', concluirTarefa);
 
 //mini-ecommerce
 app.post('/mini-ecommerce/checkout/finalizar-compra', finalizarCompra);
+app.get('mini-ecommerce/estado/:siglaEstado/cidades', obterCidadesPorEstado);
 
 app.listen(port, () => console.log(`Servidor inicializado na porta ${port}`));
