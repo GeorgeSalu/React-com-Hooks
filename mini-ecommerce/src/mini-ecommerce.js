@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './mini-ecommerce.css';
+import Menu from './components/menu/menu';
 
 function MiniEcommerce() {
 
@@ -9,7 +10,9 @@ function MiniEcommerce() {
   const [total, setTotal] = useState('0,00');
 
   return (
-    <h1>Mini ecommerce</h1>
+    <div>
+      <Menu />
+    </div>
   );
 }
 
