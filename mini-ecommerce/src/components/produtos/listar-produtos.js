@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
 
-function ListarProdutos() {
+function ListarProdutos(props) {
 
   const produtos = [
     { nome: 'aprendendo java', preco: 'R$ 59,00' },
