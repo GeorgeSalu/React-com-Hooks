@@ -16,6 +16,12 @@ function ListarProdutos() {
     { nome: 'Typescript na pratica', preco: 'R$ 59,00' }
   ]
 
+  function handleComprar(event, produto) {
+    event.preventDefault();
+    //adicionar o produto
+    //exibir mensagem
+  }
+
   function render() {
     let key = 1;
     const cards = produtos.map(produto => 
@@ -26,7 +32,7 @@ function ListarProdutos() {
           <Card.Img variant="top" src={placeholder} />
           <Card.Body className="text-center">
             <Card.Title style={{ height: '40px' }}>
-              {/* nome do produto  */}
+              {produto.nome}
             </Card.Title>
             <Card.Text>
               Descrição do produto aqui....
@@ -34,8 +40,8 @@ function ListarProdutos() {
             <Button
               variant="success"
               style={{ width: '100%' }}
-              onClick={}>
-                Comprar ({/* preco do produto */})
+              onClick={(event) => handleComprar(event, produto)}>
+                Comprar ({produto.preco})
             </Button>
           </Card.Body>
       </Card>
@@ -43,7 +49,7 @@ function ListarProdutos() {
     return cards;
   }
 
-  return ();
+  return render();
 }
 
 export default ListarProdutos;
