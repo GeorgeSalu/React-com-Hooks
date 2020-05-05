@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ListarProdutos from './listar-produtos';
 import PropTypes from 'prop-types';
-import Alert from 'react-bootstrap';
+import Alert from 'react-bootstrap/Alert';
 
 function Produtos(props) {
 
@@ -14,7 +14,7 @@ function Produtos(props) {
 
   function exibirMensagem(produto) {
     setExibirMsg(true);
-    setProduto(produto);
+    setProduto(produto.nome);
     setTimeout(() => {
       setExibirMsg(false)
     }, 3000);
@@ -30,7 +30,7 @@ function Produtos(props) {
       </Alert>
       <ListarProdutos 
         exibirMensagem={exibirMensagem}
-        adicionarProduto={adicionarProduto}/>
+        adicionarProduto={props.adicionarProduto}/>
     </div>
   );
 }
