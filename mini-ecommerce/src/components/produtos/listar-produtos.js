@@ -1,7 +1,8 @@
-import React from 'react'
-import placeholder from '../../imagens/286x180.png'
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
+import React from 'react';
+import placeholder from '../../imagens/286x180.png';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import PropTypes from 'prop-types';
 
 function ListarProdutos() {
 
@@ -18,7 +19,8 @@ function ListarProdutos() {
 
   function handleComprar(event, produto) {
     event.preventDefault();
-    //adicionar o produto
+    props.adicionarProduto(produto);
+    props.exibirMensagem(produto);
     //exibir mensagem
   }
 
@@ -50,6 +52,11 @@ function ListarProdutos() {
   }
 
   return render();
+}
+
+ListarProdutos.propTypes = {
+  adicionarProduto: PropTypes.func.isRequired,
+  exibirMensagem: PropTypes.func.isRequired
 }
 
 export default ListarProdutos;
