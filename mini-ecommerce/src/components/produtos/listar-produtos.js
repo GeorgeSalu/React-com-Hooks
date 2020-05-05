@@ -12,8 +12,25 @@ function ListarProdutos() {
     { nome: 'algoritmos e estrutura de dados', preco: 'R$ 25,00' },
     { nome: 'startup', preco: 'R$ 29,00' },
     { nome: 'Teste unitarios com jasmine', preco: 'R$ 14,00' },
+    { nome: 'apis restful com spring e java', preco: 'R$ 159,00' },
     { nome: 'Typescript na pratica', preco: 'R$ 59,00' }
   ]
+
+  function render() {
+    <Card
+      style={{ width: '18rem', margin: '10px', float: 'left' }} >
+        <Card.Img variant="top" src={placeholder} />
+        <Card.Body className="text-center">
+          <Card.Title style={{ height: '40px' }}>
+            {/* nome do produto  */}
+          </Card.Title>
+          <Card.Text>
+            Descrição do produto aqui....
+          </Card.Text>
+        </Card.Body>
+    </Card>
+
+  }
 
   return ();
 }
