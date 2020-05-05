@@ -17,19 +17,30 @@ function ListarProdutos() {
   ]
 
   function render() {
-    <Card
-      style={{ width: '18rem', margin: '10px', float: 'left' }} >
-        <Card.Img variant="top" src={placeholder} />
-        <Card.Body className="text-center">
-          <Card.Title style={{ height: '40px' }}>
-            {/* nome do produto  */}
-          </Card.Title>
-          <Card.Text>
-            Descrição do produto aqui....
-          </Card.Text>
-        </Card.Body>
-    </Card>
-
+    let key = 1;
+    const cards = produtos.map(produto => 
+      <Card 
+        key={key}
+        data-testid={'card'+key++}
+        style={{ width: '18rem', margin: '10px', float: 'left' }} >
+          <Card.Img variant="top" src={placeholder} />
+          <Card.Body className="text-center">
+            <Card.Title style={{ height: '40px' }}>
+              {/* nome do produto  */}
+            </Card.Title>
+            <Card.Text>
+              Descrição do produto aqui....
+            </Card.Text>
+            <Button
+              variant="success"
+              style={{ width: '100%' }}
+              onClick={}>
+                Comprar ({/* preco do produto */})
+            </Button>
+          </Card.Body>
+      </Card>
+    );
+    return cards;
   }
 
   return ();
