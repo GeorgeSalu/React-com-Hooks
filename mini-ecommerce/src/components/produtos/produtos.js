@@ -15,11 +15,22 @@ function Produtos(props) {
   function exibirMensagem(produto) {
     setExibirMsg(true);
     setProduto(produto);
+    setTimeout(() => {
+      setExibirMsg(false)
+    }, 3000);
   }
 
   return (
     <div className={visivel()}>
-      <ListarProdutos />
+      <Alert 
+        variant="success"
+        style={{ margin: '10px' }}
+        show={exibirMsg}>
+          <b>{produto}</b> adicionado com sucesso ao carrinho
+      </Alert>
+      <ListarProdutos 
+        exibirMensagem={exibirMensagem}
+        adicionarProduto={adicionarProduto}/>
     </div>
   );
 }
