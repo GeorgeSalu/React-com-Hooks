@@ -19,5 +19,14 @@ describe('Teste do componente de listagem de produtos', () => {
     );
     expect(getByTestId('card1')).toHaveTextContent('Descrição do produto aqui....');
     expect(getByTestId('card3')).toHaveTextContent('Descrição do produto aqui....');
+  });
+
+  it('deve exibir os precos dos produtos nos botões de comprar',() => {
+    const {getByTestId} = render(
+      <ListarProdutos
+        adicionarProduto={() => false}
+        exibirMensagem={() => false} />
+    );
+    expect(getByTestId('card1')).toHaveTextContent('Comprar (R$ 59,00)')
   })
 })
