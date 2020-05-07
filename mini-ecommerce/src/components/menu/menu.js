@@ -6,8 +6,9 @@ import {
 import {
   faShoppingBasket, faCashRegister, faShoppingCart
 } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
 
-function Menu() {
+function Menu(props) {
   return (
     <Navbar bg="dark" variant="dark">
       <Navbar.Brand href="">
@@ -51,6 +52,12 @@ function Menu() {
       </Navbar.Collapse>
     </Navbar>
   );
+}
+
+Menu.propTypes = {
+  produtos: PropTypes.array.isRequired,
+  handleExibirProdutos: PropTypes.func.isRequired,
+  handleExibirCheckut: PropTypes.func.isRequired
 }
 
 export default Menu;
