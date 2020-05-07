@@ -57,7 +57,7 @@ function Menu(props) {
 Menu.propTypes = {
   produtos: PropTypes.array.isRequired,
   handleExibirProdutos: PropTypes.func.isRequired,
-  handleExibirCheckut: PropTypes.func.isRequired
+  handleExibirCheckout: PropTypes.func.isRequired
 }
 
 export default Menu;
