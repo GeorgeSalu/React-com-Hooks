@@ -1,6 +1,8 @@
 import React from 'react';
-import {Nav, NavDropdown, Navbar} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  Nav, NavDropdown, Navbar
+} from 'react-bootstrap';
 import {
   faShoppingBasket, faCashRegister, faShoppingCart
 } from '@fortawesome/free-solid-svg-icons';
