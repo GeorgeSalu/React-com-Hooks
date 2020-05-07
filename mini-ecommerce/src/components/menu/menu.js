@@ -25,7 +25,8 @@ function Menu(props) {
               </div>
             }
             drop="left">
-              <NavDropdown.Item>
+              <NavDropdown.Item href=""
+                onClick={props.handleExibirProdutos}>
                 <FontAwesomeIcon icon={faShoppingBasket} />
                 &nbsp;
                 <strong>Produtos</strong>
@@ -37,11 +38,12 @@ function Menu(props) {
                 Total: R$ {/** chamar funcao de calculo de total */}
               </NavDropdown.Item>
               {/** verificar quantidade de produtos para exibir ou nao o botao */}
-              <span>
+              <span className={props.produtos.length === 0 ? 'hidden': null}>
                 <NavDropdown.Divider />
                 <NavDropdown.Item
                   href=""
-                  style={{ color: 'green' }}>
+                  style={{ color: 'green' }}
+                  onClick={props.handleExibirCheckout}>
                     <FontAwesomeIcon icon={faCashRegister} />
                     &nbsp;
                     Finalizar compra
