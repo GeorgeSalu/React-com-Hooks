@@ -18,6 +18,13 @@ function ItensCarrinhoMenu(props) {
       );
     }
     //listagem dos produtos
+    const itens = props.produtos.map(produto => 
+      <NavDropdown.Item href="" key={produto.nome} data-testid={produto.nome}>
+        {produto.nome} - {produto.quantidade} x {produto.preco}
+      </NavDropdown.Item>  
+    );
+
+    return itens;
   }
   
   return render();
