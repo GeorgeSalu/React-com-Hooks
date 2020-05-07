@@ -9,6 +9,19 @@ import {
 import PropTypes from 'prop-types';
 
 function Menu(props) {
+
+  function calcularTotal() {
+    if(props.produtos.length === 0) {
+      return '0,00';
+    }
+    let total = 0;
+    props.produtos.forEach(produto => {
+      let preco = produto.preco.replace(',','.').replace('R$ ','');
+      total += parseFloat(preco) * produto.quantidade;
+    });
+    return total.toFixed(2).toString().replace('.', ',');
+  }
+
   return (
     <Navbar bg="dark" variant="dark">
       <Navbar.Brand href="">
