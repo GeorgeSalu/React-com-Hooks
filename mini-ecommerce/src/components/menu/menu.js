@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavBar, Nav, NavDropdown} from 'react-bootstrap';
+import {Nav, NavDropdown, Navbar} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faShoppingBasket, faCashRegister, faShoppingCart
@@ -7,7 +7,25 @@ import {
 
 function Menu() {
   return (
-    <h1>Menu</h1>
+    <Navbar bg="dark" variant="dark">
+      <Navbar.Brand href="">
+        Mini Ecommerce
+      </Navbar.Brand>
+      <Navbar.Collapse className="justify-content-end">
+        <Nav>
+          <NavDropdown
+            title={
+              <div style={{ display: 'inline-block' }}>
+                <FontAwesomeIcon icon={faShoppingCart} />
+                &nbsp;
+                Carrinho
+              </div>
+            }
+            drop="left">
+          </NavDropdown>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   );
 }
 
