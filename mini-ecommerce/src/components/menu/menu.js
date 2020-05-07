@@ -45,12 +45,12 @@ function Menu(props) {
                 <strong>Produtos</strong>
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              {/** itens do carrinho */}
+              
               <NavDropdown.Divider />
               <NavDropdown.Item href="" data-testid="total-carrinho">
                 Total: R$ {calcularTotal()}
               </NavDropdown.Item>
-              {/** verificar quantidade de produtos para exibir ou nao o botao */}
+              
               <span className={props.produtos.length === 0 ? 'hidden': null}>
                 <NavDropdown.Divider />
                 <NavDropdown.Item
