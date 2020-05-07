@@ -35,6 +35,17 @@ function Menu() {
               <NavDropdown.Item href="" data-testid="total-carrinho">
                 Total: R$ {/** chamar funcao de calculo de total */}
               </NavDropdown.Item>
+              {/** verificar quantidade de produtos para exibir ou nao o botao */}
+              <span>
+                <NavDropdown.Divider />
+                <NavDropdown.Item
+                  href=""
+                  style={{ color: 'green' }}>
+                    <FontAwesomeIcon icon={faCashRegister} />
+                    &nbsp;
+                    Finalizar compra
+                </NavDropdown.Item>
+              </span>
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>
