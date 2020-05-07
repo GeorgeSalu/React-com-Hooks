@@ -8,6 +8,6 @@ describe('Teste do componente produtos', () => {
       <Produtos visivel={true} adicionarProduto={() => false} />
     );
     const botoes = getAllByText(/comprar/i);
-    expect(botoes).toBeThruthy();
+    expect(botoes).toBeTruthy();
   })
 })
