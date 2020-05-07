@@ -48,7 +48,7 @@ function Menu(props) {
               {/** itens do carrinho */}
               <NavDropdown.Divider />
               <NavDropdown.Item href="" data-testid="total-carrinho">
-                Total: R$ {/** chamar funcao de calculo de total */}
+                Total: R$ {calcularTotal()}
               </NavDropdown.Item>
               {/** verificar quantidade de produtos para exibir ou nao o botao */}
               <span className={props.produtos.length === 0 ? 'hidden': null}>
@@ -56,7 +56,7 @@ function Menu(props) {
                 <NavDropdown.Item
                   href=""
                   style={{ color: 'green' }}
-                  onClick={props.handleExibirCheckout}>
+                  onClick={() => props.handleExibirCheckout(calcularTotal())}>
                     <FontAwesomeIcon icon={faCashRegister} />
                     &nbsp;
                     Finalizar compra
