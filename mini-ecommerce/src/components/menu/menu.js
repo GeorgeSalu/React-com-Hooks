@@ -24,6 +24,17 @@ function Menu() {
               </div>
             }
             drop="left">
+              <NavDropdown.Item>
+                <FontAwesomeIcon icon={faShoppingBasket} />
+                &nbsp;
+                <strong>Produtos</strong>
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              {/** itens do carrinho */}
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="" data-testid="total-carrinho">
+                Total: R$ {/** chamar funcao de calculo de total */}
+              </NavDropdown.Item>
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>
