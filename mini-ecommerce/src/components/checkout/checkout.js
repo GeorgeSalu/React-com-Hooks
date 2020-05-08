@@ -113,6 +113,24 @@ function Checkout(props) {
               </Form.Control.Feedback>
             </Col>
           </Form.Group>
+
+          <Form.Group as={Row} controlId="cidade">
+            <Form.Label column sm={3}>
+              Cidade
+            </Form.Label>
+            <Col sm={9}>
+              <Form.Control
+                as="select"
+                name="cidade"
+                data-testid="cidade">
+                  <option value="">Selecion a cidade</option>
+                  {/** listar as cidades aqui */}
+              </Form.Control>
+              <Form.Control.Feedback type="invalid">
+                Selecione a sua cidade
+              </Form.Control.Feedback>
+            </Col>
+          </Form.Group>
         </Form>
 
     </Jumbotron>
