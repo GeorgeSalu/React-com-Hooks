@@ -80,6 +80,22 @@ function Checkout(props) {
               </Form.Control.Feedback>
             </Col>
           </Form.Group>
+
+          <Form.Group as={Row} controlId="endereco">
+            <Form.Label column sm={3}>
+              Endereco
+            </Form.Label>
+            <Col sm={9}>
+              <Form.Control 
+                type="text"
+                placeholder="digite o seu endereco completo"
+                name="endereco"
+                data-testid="txt-endereco" />
+              <Form.Control.Feedback type="invalid">
+                Digite o seu endereco.
+              </Form.Control.Feedback>
+            </Col>
+          </Form.Group>
         </Form>
 
     </Jumbotron>
