@@ -148,6 +148,28 @@ function Checkout(props) {
               </Form.Control.Feedback>
             </Col>
           </Form.Group>
+
+          <Form.Group as={Row} controlId="emailPromocional">
+            <Form.Label column sm={12}>
+              Deseja receber emails com promoções ?
+            </Form.Label>
+            <Form.Check
+              inline
+              name="emailPromocional"
+              type="radio"
+              id="promocaoSim"
+              value="S"
+              label="Sim"
+              style={{ marginLeft: '15px' }} />
+
+            <Form.Check
+              inline
+              name="emailPromocional"
+              id="promocaoNao"
+              value="N"
+              type="radio"
+              label="Não" />
+          </Form.Group>
         </Form>
 
     </Jumbotron>
