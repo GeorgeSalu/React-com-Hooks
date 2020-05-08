@@ -39,7 +39,7 @@ function Checkout(props) {
             <Col sm={9}>
               <Form.Control
                 type="text"
-                placeholder="Digite o seu nome completo (minimo 5 caracteres)"
+                placeholder="Digite o seu nome completo"
                 name="nomeCompleto"
                 data-testid="txt-nome-completo" />
               <Form.Control.Feedback type="invalid">
