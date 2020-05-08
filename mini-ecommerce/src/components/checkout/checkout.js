@@ -31,6 +31,22 @@ function Checkout(props) {
               </Form.Control.Feedback>
             </Col>
           </Form.Group>
+
+          <Form.Group as={Row} controlId="nomeCompleto">
+            <Form.Label column sm={3}>
+              Nome completo
+            </Form.Label>
+            <Col sm={9}>
+              <Form.Control
+                type="text"
+                placeholder="Digite o seu nome completo (minimo 5 caracteres)"
+                name="nomeCompleto"
+                data-testid="txt-nome-completo" />
+              <Form.Control.Feedback type="invalid">
+                Digite o seu nome completo (minimo 5 caracteres)
+              </Form.Control.Feedback>
+            </Col>
+          </Form.Group>
         </Form>
 
     </Jumbotron>
