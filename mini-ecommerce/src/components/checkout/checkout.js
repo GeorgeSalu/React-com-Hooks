@@ -64,6 +64,22 @@ function Checkout(props) {
                   withPortal />
               </Col>
           </Form.Group>
+
+          <Form.Group as={Row} controlId="cpf">
+            <Form.Label column sm={3}>
+              CPF
+            </Form.Label>
+            <Col sm={9}>
+              <Form.Control
+                type="text"
+                placeholder="Digite o seu cpf"
+                name="cpf"
+                data-testid="txt-cpf" />
+              <Form.Control.Feedback type="invalid">
+                Digite um CPF valido
+              </Form.Control.Feedback>
+            </Col>
+          </Form.Group>
         </Form>
 
     </Jumbotron>
