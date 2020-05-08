@@ -192,7 +192,7 @@ function Checkout(props) {
           </Form.Group>
         </Form>
 
-        <Modal show={true} data-testid="modal-compra-sucesso">
+        <Modal show={false} data-testid="modal-compra-sucesso">
           <Modal.Header closeButton>
             <Modal.Title>Compra realizada com sucesso</Modal.Title>
           </Modal.Header>
@@ -202,6 +202,21 @@ function Checkout(props) {
           <Modal.Footer>
             <Button 
               variant="success">
+                Continuar
+            </Button>
+          </Modal.Footer>
+        </Modal>
+
+        <Modal show={false} data-testid="modal-erro-comprar">
+          <Modal.Header closeButton>
+            <Modal.Title>Error ao processar pedido</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            Tente novamente em instantes.
+          </Modal.Body>
+          <Modal.Footer>
+            <Button
+              variant="warning">
                 Continuar
             </Button>
           </Modal.Footer>
