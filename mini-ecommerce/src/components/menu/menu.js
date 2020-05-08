@@ -7,6 +7,7 @@ import {
   faShoppingBasket, faCashRegister, faShoppingCart
 } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
+import ItensCarrinhoMenu from './itens-carrinho-menu';
 
 function Menu(props) {
 
@@ -45,7 +46,7 @@ function Menu(props) {
                 <strong>Produtos</strong>
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              
+              <ItensCarrinhoMenu produtos={props.produtos} />
               <NavDropdown.Divider />
               <NavDropdown.Item href="" data-testid="total-carrinho">
                 Total: R$ {calcularTotal()}
