@@ -36,6 +36,6 @@ app.put('/gerenciador-tarefas/:id/concluir', concluirTarefa);
 
 //mini-ecommerce
 app.post('/mini-ecommerce/checkout/finalizar-compra', finalizarCompra);
-app.get('mini-ecommerce/estado/:siglaEstado/cidades', obterCidadesPorEstado);
+app.get('/mini-ecommerce/estado/:siglaEstado/cidades', obterCidadesPorEstado);
 
 app.listen(port, () => console.log(`Servidor inicializado na porta ${port}`));
