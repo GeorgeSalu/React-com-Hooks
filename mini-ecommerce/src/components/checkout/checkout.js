@@ -229,4 +229,12 @@ function Checkout(props) {
 
 }
 
+Checkout.propTypes = {
+  visivel: PropTypes.bool.isRequired,
+  handleExibirProdutos: PropTypes.func.isRequired,
+  total: PropTypes.string.isRequired,
+  produtos: PropTypes.object.isRequired,
+  handleLimparCarrinho: PropTypes.func.isRequired
+}
+
 export default Checkout;
