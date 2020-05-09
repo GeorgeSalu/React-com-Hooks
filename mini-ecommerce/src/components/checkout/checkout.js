@@ -11,10 +11,15 @@ registerLocale('pt', pt);
 
 function Checkout(props) {
 
+  function visivel() {
+    return props.visivel ? null : 'hidden';
+  }
+
   return (
     <Jumbotron
       fluid
-      style={{ margin: '10px' }}>
+      style={{ margin: '10px' }}
+      className={visivel()}>
         <h3 className="text-center">Finalizar compra</h3>
 
         <Form noValidate style={{ margin: '10px' }}>
