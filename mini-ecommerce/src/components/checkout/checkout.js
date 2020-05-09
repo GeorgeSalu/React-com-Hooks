@@ -26,6 +26,7 @@ function Checkout(props) {
   }
 
   return (
+
     <Jumbotron
       fluid
       style={{ margin: '10px' }}
@@ -270,8 +271,8 @@ function Checkout(props) {
         </Modal>
 
     </Jumbotron>
-  );
 
+  );
 }
 
 Checkout.propTypes = {
