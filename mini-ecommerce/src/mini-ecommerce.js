@@ -59,7 +59,7 @@ function MiniEcommerce() {
       <Checkout 
         visivel={exibirCheckout}
         exibirProdutos={handleExibirProdutos}
-        total={tatal}
+        total={total}
         produtos={carrinho}
         handleLimparCarrinho={handleLimparCarrinho} />
     </div>
