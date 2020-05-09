@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Form, Row, Col, Button, Jumbotron, Modal} from 'react-bootstrap';
 import 'react-datepicker/dist/react-datepicker.css';
 import DatePicker, {registerLocale} from 'react-datepicker';
@@ -10,6 +10,11 @@ import ListarCidades from './listar-cidades';
 registerLocale('pt', pt);
 
 function Checkout(props) {
+
+  const [dataNascimento, setDataNascimento] = useState(null);
+  const [formEnviado, setFormEnviado] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [showErroModal, setShowErroModal] = useState(false);
 
   function visivel() {
     return props.visivel ? null : 'hidden';
