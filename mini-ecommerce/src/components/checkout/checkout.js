@@ -15,6 +15,8 @@ registerLocale('pt', pt);
 
 function Checkout(props) {
 
+  const CHECKOUT_URL = "http://localhost:3001/mini-ecommerce/checkout/finalizar-compra";
+
   const [dataNascimento, setDataNascimento] = useState(null);
   const [formEnviado, setFormEnviado] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -37,8 +39,14 @@ function Checkout(props) {
     return props.visivel ? null : 'hidden';
   }
 
-  function finalizarCompra(values) {
-
+  function finalizarCompra(dados) {
+    if(!dataNascimento) {
+      setFormEnviado(true);
+      return;
+    }
+    dados.dataNascimento = dataNascimento;
+    dados.produtos = JSON.stringify(props.produtos);
+    dados.total = `R$ ${props.total}`;
   }
 
   function handleDataNascimento(data) {
