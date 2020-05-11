@@ -4,7 +4,11 @@ export function formatarCpf(cpf) {
     cpf = cpf.substring(0, 11);
   }
   switch (cpf.length) {
- 
+    case 4:
+    case 5:
+    case 6:
+      cpf = cpf.replace(/(\d{3})(.*)/, '$1.$2');
+      break;
   }
   return cpf;
 }
