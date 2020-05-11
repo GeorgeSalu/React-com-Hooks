@@ -143,7 +143,11 @@ function Checkout(props) {
                     type="text"
                     placeholder="digite o seu endereco completo"
                     name="endereco"
-                    data-testid="txt-endereco" />
+                    data-testid="txt-endereco"
+                    value={values.endereco}
+                    onChange={handleChange}
+                    isValid={touched.endereco && !errors.endereco}
+                    isInvalid={touched.endereco && !!errors.endereco} />
                   <Form.Control.Feedback type="invalid">
                     Digite o seu endereco.
                   </Form.Control.Feedback>
@@ -158,7 +162,11 @@ function Checkout(props) {
                   <Form.Control
                     as="select"
                     name="estado"
-                    data-testid="estado">
+                    data-testid="estado"
+                    value={values.estado}
+                    onChange={handleChange}
+                    isValid={touched.estado && !errors.estado}
+                    isInvalid={touched.estado && !!errors.estado} >
                       <ListarEstados />
                   </Form.Control>
                   <Form.Control.Feedback type="invalid">
@@ -175,7 +183,11 @@ function Checkout(props) {
                   <Form.Control
                     as="select"
                     name="cidade"
-                    data-testid="cidade">
+                    data-testid="cidade" 
+                    value={values.cidade}
+                    onChange={handleChange}
+                    isValid={touched.cidade && !errors.cidade}
+                    isInvalid={touched.cidade && !!errors.cidade} >
                       <option value="">Selecion a cidade</option>
                       <ListarCidades estado={''} />
                   </Form.Control>
@@ -194,7 +206,11 @@ function Checkout(props) {
                     type="text"
                     placeholder="Digite o seu CEP"
                     name="cep"
-                    data-testid="txt-cep" />
+                    data-testid="txt-cep"
+                    value={values.cep}
+                    onChange={handleChange}
+                    isValid={touched.cep && !errors.cep}
+                    isInvalid={touched.cep && !!errors.cep} />
 
                   <Form.Control.Feedback type="invalid">
                     Digite o seu cep
