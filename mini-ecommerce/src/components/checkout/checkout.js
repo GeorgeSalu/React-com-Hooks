@@ -207,7 +207,7 @@ function Checkout(props) {
                     isValid={touched.cidade && !errors.cidade}
                     isInvalid={touched.cidade && !!errors.cidade} >
                       <option value="">Selecion a cidade</option>
-                      <ListarCidades estado={''} />
+                      <ListarCidades estado={values.estado} />
                   </Form.Control>
                   <Form.Control.Feedback type="invalid">
                     Selecione a sua cidade
