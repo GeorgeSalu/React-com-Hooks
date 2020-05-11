@@ -124,7 +124,7 @@ function Checkout(props) {
                     placeholder="Digite o seu cpf"
                     name="cpf"
                     data-testid="txt-cpf"
-                    values={values.cpf}
+                    value={values.cpf}
                     onChange={handleChange}
                     isValid={touched.cpf && !errors.cpf}
                     isInvalid={touched.cpf && !!errors.cpf} />
