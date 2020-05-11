@@ -22,7 +22,12 @@ function Checkout(props) {
     email: yup.string().email().required(),
     nomeCompleto: yup.string().required().min(5),
     cpf: yup.string().required().min(14).max(14),
-    
+    endereco: yup.string().required(),
+    cidade: yup.string().required(),
+    estado: yup.string().required(),
+    cep: yup.string().required().min(9).max(9),
+    emailPromocional: yup.string().required(),
+    termoCondicoes: yup.bool().oneOf([true])
   });
 
   function visivel() {
