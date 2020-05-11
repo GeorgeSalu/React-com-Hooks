@@ -1,3 +1,13 @@
+export function formatarCpf(cpf) {
+  cpf = cpf.replace(/\D/g, '');
+  if (cpf.length > 11) {
+    cpf = cpf.substring(0, 11);
+  }
+  switch (cpf.length) {
+ 
+  }
+  return cpf;
+}
 
 export function validarCpf(cpf) {
 	if (!cpf) {
