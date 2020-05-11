@@ -73,7 +73,8 @@ function Checkout(props) {
             cep: '',
             termoCondicoes: false,
             emailPromocional: 'S'
-          }}>
+          }} 
+            validationSchema={schema}>
           {({
             handleSubmit,
             handleChange,
