@@ -229,7 +229,9 @@ function Checkout(props) {
                   id="promocaoSim"
                   value="S"
                   label="Sim"
-                  style={{ marginLeft: '15px' }} />
+                  style={{ marginLeft: '15px' }}
+                  checked={values.emailPromocional === 'S'}
+                  onChange={handleChange} />
 
                 <Form.Check
                   inline
@@ -237,7 +239,9 @@ function Checkout(props) {
                   id="promocaoNao"
                   value="N"
                   type="radio"
-                  label="Não" />
+                  label="Não"
+                  checked={values.emailPromocional === 'N'}
+                  onChange={handleChange} />
               </Form.Group>
 
               <Form.Group as={Row} controlId="termosCondicoes">
@@ -245,7 +249,11 @@ function Checkout(props) {
                   name="termosCondicoes"
                   label="Concordo com os termos e condições"
                   style={{ marginLeft: '15px' }}
-                  data-testid="check-termos-condicoes" />
+                  data-testid="check-termos-condicoes"
+                  value={values.termoCondicoes}
+                  onChange={handleChange}
+                  isValid={touched.termoCondicoes && !errors.termoCondicoes}
+                  isInvalid={touched.termoCondicoes && !!errors.termoCondicoes} />
 
               </Form.Group>
 
