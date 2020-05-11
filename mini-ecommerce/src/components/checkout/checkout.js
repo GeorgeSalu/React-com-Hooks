@@ -56,6 +56,15 @@ function Checkout(props) {
     }
   }
 
+  function handleContinuar() {
+    setShowModal(false);
+    props.handleExibirProdutos();
+  }
+
+  function handleFecharErroModal() {
+    setShowErroModal(false);
+  }
+
   return (
 
     <Jumbotron
@@ -313,7 +322,10 @@ function Checkout(props) {
 
         </Formik>
 
-        <Modal show={false} data-testid="modal-compra-sucesso">
+        <Modal 
+          show={showModal} 
+          data-testid="modal-compra-sucesso"
+          onHide={handleContinuar} >
           <Modal.Header closeButton>
             <Modal.Title>Compra realizada com sucesso</Modal.Title>
           </Modal.Header>
@@ -322,13 +334,17 @@ function Checkout(props) {
           </Modal.Body>
           <Modal.Footer>
             <Button 
-              variant="success">
+              variant="success" 
+              onClick={handleContinuar}>
                 Continuar
             </Button>
           </Modal.Footer>
         </Modal>
 
-        <Modal show={false} data-testid="modal-erro-comprar">
+        <Modal 
+          show={showErroModal} 
+          data-testid="modal-erro-comprar"
+          onHide={handleFecharErroModal}>
           <Modal.Header closeButton>
             <Modal.Title>Error ao processar pedido</Modal.Title>
           </Modal.Header>
@@ -337,7 +353,8 @@ function Checkout(props) {
           </Modal.Body>
           <Modal.Footer>
             <Button
-              variant="warning">
+              variant="warning"
+              onClick={handleFecharErroModal}>
                 Continuar
             </Button>
           </Modal.Footer>
