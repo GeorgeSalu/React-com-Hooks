@@ -25,6 +25,21 @@ function Checkout(props) {
 
   }
 
+  function handleDataNascimento(data) {
+    setDataNascimento(data);
+  }
+
+  function datePikerCss() {
+    if(!formEnviado) {
+      return "form-control";
+    }
+    if(dataNascimento) {
+      return "form-control is-valid"
+    } else {
+      return "form-control is-invalid"
+    }
+  }
+
   return (
 
     <Jumbotron
@@ -110,7 +125,10 @@ function Checkout(props) {
                       dropdownMode="select"
                       dateFormat="dd/MM/yyyy"
                       placeholderText="Selecione a data"
-                      withPortal />
+                      withPortal
+                      selected={dataNascimento}
+                      onChange={handleDataNascimento}
+                      className={datePikerCss()} />
                   </Col>
               </Form.Group>
 
