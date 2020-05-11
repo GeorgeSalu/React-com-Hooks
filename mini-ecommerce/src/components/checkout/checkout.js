@@ -8,6 +8,7 @@ import ListarEstados from './listar-estados';
 import ListarCidades from './listar-cidades';
 import { Formik } from 'formik';
 import * as yup from 'yup';
+import { validarCpf } from '../../utils/cpf-util';
 
 registerLocale('pt', pt);
 
@@ -21,7 +22,8 @@ function Checkout(props) {
   const schema = yup.object({
     email: yup.string().email().required(),
     nomeCompleto: yup.string().required().min(5),
-    cpf: yup.string().required().min(14).max(14),
+    cpf: yup.string().required().min(14).max(14)
+      .test('cpf-valido', 'CPF invalido', (cpf) => validarCpf(cpf) ),
     endereco: yup.string().required(),
     cidade: yup.string().required(),
     estado: yup.string().required(),
