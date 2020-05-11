@@ -86,7 +86,11 @@ function Checkout(props) {
                     type="text"
                     placeholder="Digite o seu nome completo"
                     name="nomeCompleto"
-                    data-testid="txt-nome-completo" />
+                    data-testid="txt-nome-completo"
+                    value={values.nomeCompleto}
+                    onChange={handleChange}
+                    isValid={touched.nomeCompleto && !errors.nomeCompleto}
+                    isInvalid={touched.nomeCompleto && !!errors.nomeCompleto} />
                   <Form.Control.Feedback type="invalid">
                     Digite o seu nome completo (minimo 5 caracteres)
                   </Form.Control.Feedback>
