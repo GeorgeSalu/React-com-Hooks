@@ -10,6 +10,7 @@ import { Formik } from 'formik';
 import * as yup from 'yup';
 import { validarCpf, formatarCpf } from '../../utils/cpf-util';
 import formatarCep from '../../utils/cep-util';
+import axios from 'axios';
 
 registerLocale('pt', pt);
 
@@ -39,7 +40,7 @@ function Checkout(props) {
     return props.visivel ? null : 'hidden';
   }
 
-  function finalizarCompra(dados) {
+  async function finalizarCompra(dados) {
     if(!dataNascimento) {
       setFormEnviado(true);
       return;
@@ -47,6 +48,14 @@ function Checkout(props) {
     dados.dataNascimento = dataNascimento;
     dados.produtos = JSON.stringify(props.produtos);
     dados.total = `R$ ${props.total}`;
+
+    try {
+      await axios.post(CHECKOUT_URL, dados);
+      setShowModal(true);
+      props.handleLimparCarrinho();
+    } catch (error) {
+      setShowErroModal(true);
+    }
   }
 
   function handleDataNascimento(data) {
