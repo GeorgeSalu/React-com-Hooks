@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import ListarEstados from './listar-estados';
 import ListarCidades from './listar-cidades';
 import { Formik } from 'formik';
+import * as yup from 'yup';
 
 registerLocale('pt', pt);
 
@@ -16,6 +17,13 @@ function Checkout(props) {
   const [formEnviado, setFormEnviado] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showErroModal, setShowErroModal] = useState(false);
+
+  const schema = yup.object({
+    email: yup.string().email().required(),
+    nomeCompleto: yup.string().required().min(5),
+    cpf: yup.string().required().min(14).max(14),
+    
+  });
 
   function visivel() {
     return props.visivel ? null : 'hidden';
