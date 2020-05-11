@@ -9,6 +9,7 @@ import ListarCidades from './listar-cidades';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { validarCpf, formatarCpf } from '../../utils/cpf-util';
+import formatarCep from '../../utils/cep-util';
 
 registerLocale('pt', pt);
 
@@ -245,7 +246,10 @@ function Checkout(props) {
                     name="cep"
                     data-testid="txt-cep"
                     value={values.cep}
-                    onChange={handleChange}
+                    onChange={e => {
+                      e.currentTarget.value = formatarCep(e.currentTarget.value);
+                      handleChange(e);
+                    }}
                     isValid={touched.cep && !errors.cep}
                     isInvalid={touched.cep && !!errors.cep} />
 
