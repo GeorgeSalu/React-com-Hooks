@@ -41,6 +41,11 @@ describe('Teste do componente checkout',() => {
     fireEvent.change(getByTestId('txt-cep'), { target: { value: '12345-678'}});
     fireEvent.click(getByTestId('check-termos-condicoes'));
     fireEvent.click(getByTestId('btn-finalizar-compra'));
+    const modal = await findByTestId('modal-compra-sucesso');
+    expect(modal).toHaveTextContent('Compra realizada com sucesso!');
+    expect(axiosMock.get).toHaveBeenCalledTimes(1);
+    expect(axiosMock.post).toHaveBeenCalledTimes(1);
+    expect(axiosMock.post.mock.calls[0][1]).toStrictEqual(dadosFinalizarCompra);
   })
 
 })
