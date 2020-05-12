@@ -5,6 +5,8 @@ import axios from 'axios'
 
 function Upload() {
 
+  const UPLOAD_API_URL = "http://localhost:3001/upload";
+
   const [imagem, setImagem] = useState();
   const [desabilitarBotao, setDesabilitarBotao] = useState(true);
   const [urlImagem, setUrlImagem] = useState('');
@@ -12,8 +14,22 @@ function Upload() {
   const [exibirModal, setExibirModal] = useState(false);
   const [exibirProcessando, setExibirProcessando] = useState(false);
 
-  function handleUpload(event) {
-
+  async function handleUpload(event) {
+    event.preventDefault();
+    try {
+      setExibirProcessando(true);
+      setDesabilitarBotao(true);
+      const formData = new FormData()
+      formData.append('imagem', imagem);
+      const {data} = await axios.post(UPLOAD_API_URL, formData);
+      setUrlImagem(data.path);
+      setExibirImage(true);
+    } catch (error) {
+      setExibirProcessando(false);
+      setExibirModal(true);
+    }
+    setExibirProcessando(false);
+    setDesabilitarBotao(false);
   }
 
   function handleImagem(event) {
