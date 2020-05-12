@@ -4,16 +4,31 @@ import {Button, Form, Jumbotron, Image, Modal, Spinner} from 'react-bootstrap'
 import axios from 'axios'
 
 function Upload() {
+
+  const [imagem, setImagem] = useState();
+  const [desabilitarBotao, setDesabilitarBotao] = useState(true);
+  const [urlImagem, setUrlImagem] = useState('');
+  const [exibirImage,setExibirImage ] = useState(false);
+  const [exibirModal, setExibirModal] = useState(false);
+  const [exibirProcessando, setExibirProcessando] = useState(false);
+
+  function handleUpload(event) {
+
+  }
+
+  
+
   return (
     <div>
       <h3 className="text-center">Upload de imagens</h3>
       <Jumbotron>
-        <Form noValidate>
+        <Form onSubmit={handleUpload} noValidate>
           <Form.Group>
             <Form.Label>Selecione a imagem (PNG ou JPEG)</Form.Label>
             <Form.Control
               type="file"
-              accept="image/png, imagem/jpeg"/>
+              accept="image/png, imagem/jpeg" 
+              onChange={handleImagem} />
           </Form.Group>
           <Form.Group className="text-center">
             <Button
