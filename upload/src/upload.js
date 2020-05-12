@@ -16,7 +16,15 @@ function Upload() {
 
   }
 
-  
+  function handleImagem(event) {
+    setImagem(event.target.files[0]);
+    setDesabilitarBotao(false);
+
+  }
+
+  function handleFecharModal() {
+    setExibirModal(false);
+  }
 
   return (
     <div>
@@ -33,26 +41,27 @@ function Upload() {
           <Form.Group className="text-center">
             <Button
               variant="success"
-              type="submit">
+              type="submit"
+              disabled={desabilitarBotao}>
                 <span>Fazer upload</span>
             </Button>
           </Form.Group>
-          <Form.Group>
+          <Form.Group className={exibirProcessando ? 'text-center' : 'hidden'}>
             <Spinner animation="border" />
           </Form.Group>
         </Form>
-        <div>
+        <div className={exibirImage ? 'text-center' : 'hidden'}>
           <hr />
-          <a href="" target="_blank">
+          <a href={urlImagem} target="_blank">
             <Image 
-              src={""}
+              src={urlImagem}
               thumbnail />
             <br />
-            {/** url da imagem em formato texto */}
+            {urlImagem}
           </a>
         </div>
       </Jumbotron>
-      <Modal show={false} >
+      <Modal show={exibirModal} onHide={handleFecharModal} >
         <Modal.Header closeButton>
           <Modal.Title>Erro ao fazer o upload da imagem</Modal.Title>
         </Modal.Header>
@@ -61,7 +70,8 @@ function Upload() {
         </Modal.Body>
         <Modal.Footer>
           <Button
-            variant="warning">
+            variant="warning"
+            onClick={handleFecharModal}>
               Fechar 
           </Button>
         </Modal.Footer>
