@@ -13,9 +13,17 @@ function Upload() {
             <Form.Label>Selecione a imagem (PNG ou JPEG)</Form.Label>
             <Form.Control
               type="file"
-              accept="image/png, imagem/jpeg">
-                
-              </Form.Control>
+              accept="image/png, imagem/jpeg"/>
+          </Form.Group>
+          <Form.Group className="text-center">
+            <Button
+              variant="success"
+              type="submit">
+                <span>Fazer upload</span>
+            </Button>
+          </Form.Group>
+          <Form.Group>
+            <Spinner animation="border" />
           </Form.Group>
         </Form>
       </Jumbotron>
