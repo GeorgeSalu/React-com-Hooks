@@ -20,7 +20,7 @@ describe('Teste do componente checkout',() => {
     total: 'R$ 10,00'
   }  
 
-  it('deve finalizar a compra com sucesso',() => {
+  it('deve finalizar a compra com sucesso',async () => {
     axiosMock.get.mockResolvedValueOnce({ data: ['São Paulo', 'São Pedro'] });
     const { findByTestId, getByTestId, getByPlaceholderText } = render(
       <Checkout
@@ -34,7 +34,13 @@ describe('Teste do componente checkout',() => {
     fireEvent.change(getByTestId('txt-nome-completo'), { target: { value: 'Fulano de Tal'}});
     fireEvent.change(getByPlaceholderText('Selecione a data'), { target: { value: '21/07/1998'}});
     fireEvent.change(getByTestId('txt-cpf'), {target: {value: '293.462.345-98'}});
-    
+    fireEvent.change(getByTestId('txt-endereco'), { target: { value: 'Rua dos Cadastros, 389'}});
+    fireEvent.change(getByTestId('estado'), { target: { value: 'SP'}});
+    const cidade = await findByTestId('cidade');
+    fireEvent.change(cidade, { target: { value: 'São Paulo'}});
+    fireEvent.change(getByTestId('txt-cep'), { target: { value: '12345-678'}});
+    fireEvent.click(getByTestId('check-termos-condicoes'));
+    fireEvent.click(getByTestId('btn-finalizar-compra'));
   })
 
 })
