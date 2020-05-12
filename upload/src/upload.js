@@ -19,7 +19,6 @@ function Upload() {
   function handleImagem(event) {
     setImagem(event.target.files[0]);
     setDesabilitarBotao(false);
-
   }
 
   function handleFecharModal() {
