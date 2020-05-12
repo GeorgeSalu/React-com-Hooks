@@ -26,7 +26,31 @@ function Upload() {
             <Spinner animation="border" />
           </Form.Group>
         </Form>
+        <div>
+          <hr />
+          <a href="" target="_blank">
+            <Image 
+              src={""}
+              thumbnail />
+            <br />
+            {/** url da imagem em formato texto */}
+          </a>
+        </div>
       </Jumbotron>
+      <Modal show={false} >
+        <Modal.Header closeButton>
+          <Modal.Title>Erro ao fazer o upload da imagem</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Não foi possivel fazer o upload da imagem, tente novamente em instantes
+        </Modal.Body>
+        <Modal.Footer>
+          <Button
+            variant="warning">
+              Fechar 
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }
