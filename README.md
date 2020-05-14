@@ -8,13 +8,13 @@ Através do curso, você será capaz de se destacar no mercado de trabalho como 
 
 Veja a seguir como esse curso o tornará um profissional diferenciado no mercado de trabalho:
 
-    Através do estudo utilizando projetos na prática, você será capaz de criar seus próprios projetos em um curto espaço de tempo.
+  - Através do estudo utilizando projetos na prática, você será capaz de criar seus próprios projetos em um curto espaço de tempo.
 
-    Aqui serão apresentadas as melhores práticas a serem seguidas, o que significa que você criará aplicações otimizadas e de qualidade.
+  - Aqui serão apresentadas as melhores práticas a serem seguidas, o que significa que você criará aplicações otimizadas e de qualidade.
 
-    Com a criação de projetos práticos, você terá uma ampla base de exemplos codificados para utilizar como referência em seus projetos, o que aumentará a sua produtividade.
+  - Com a criação de projetos práticos, você terá uma ampla base de exemplos codificados para utilizar como referência em seus projetos, o que aumentará a sua produtividade.
 
-    Através de pequenos projetos, você ficará motivado a concluir o curso rapidamente, o que o ajudará a estar qualificado em um curto espaço de tempo.
+  - Através de pequenos projetos, você ficará motivado a concluir o curso rapidamente, o que o ajudará a estar qualificado em um curto espaço de tempo.
 
 O curso é 100% prático, e todas as lições são executadas passo a passo para que não fique nenhuma dúvida.
 
@@ -27,17 +27,17 @@ Como foi possível perceber, só existem vantagens em atender esse curso, e se v
 O que você está esperando? Comece agora mesmo e bons estudos!
 What you’ll learn
 
-    Criar aplicações do zero ao consumo de APIs com o React
-    Criar 8 projetos práticos, incluindo uma calculadora, um conversor de moedas, CRUD, Dashboard, upload de imagens, e muito mais
-    Criar e executar projetos do zero com o React
-    Entender a arquitetura do novo React usando Hooks
-    Criar componentes dos mais diversos tipos com o React
-    Aprender a criar e validar formulários de dados
-    Aprender a criar formulários avançados com o Formik e Yup
-    Aprender a consumir APIs HTTP externas (criaremos uma em NodeJS com Express durante o curso)
-    Aprender a criar rotas e navegação
-    Aprender a criar testes unitários com o React
-    Aprender a utilizar o Bootstrap com o React
-    Aprender a criar gráficos utilizando a API de gráficos do Google
-    Aprender a fazer upload de arquivos
-    Fazer o deploy em produção de uma aplicação React no Firebase
+   - Criar aplicações do zero ao consumo de APIs com o React
+   - Criar 8 projetos práticos, incluindo uma calculadora, um conversor de moedas, CRUD, Dashboard, upload de imagens, e muito mais
+   - Criar e executar projetos do zero com o React
+   - Entender a arquitetura do novo React usando Hooks
+   - Criar componentes dos mais diversos tipos com o React
+   - Aprender a criar e validar formulários de dados
+   - Aprender a criar formulários avançados com o Formik e Yup
+   - Aprender a consumir APIs HTTP externas (criaremos uma em NodeJS com Express durante o curso)
+   - Aprender a criar rotas e navegação
+   - Aprender a criar testes unitários com o React
+   - Aprender a utilizar o Bootstrap com o React
+   - Aprender a criar gráficos utilizando a API de gráficos do Google
+   - Aprender a fazer upload de arquivos
+   - Fazer o deploy em produção de uma aplicação React no Firebase
