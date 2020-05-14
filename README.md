@@ -1,4 +1,4 @@
-### React-com-Hooks
+### React com Hooks criando 8 projetos práticos
 
 Para tornar o aprendizado prático e divertido, você criará 8 projetos ao longo do curso, onde serão ensinados passo a passo na prática, os recursos básicos e intermediários do React!
 
